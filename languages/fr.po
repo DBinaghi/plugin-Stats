@@ -449,7 +449,7 @@ msgstr "Pages où les stats sont affichées via les crochets"
 
 #: views/admin/plugins/stats-config-form.php:176
 msgid ""
-"These options allow to parameter the pages where the htis are displayed."
+"These options allow to parameter the pages where the hits are displayed."
 msgstr ""
 "Ces options permettent de paramêtrer les pages sur lesquelles les stats sont "
 "affichées."
