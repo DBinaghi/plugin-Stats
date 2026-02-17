@@ -51,37 +51,37 @@
 					unset($userRoles['super']);
 				?>
 				<table class="stats-rights">
-				<thead>
-					<tr>
-						<th></th>
-						<th><?php echo __('Public'); ?></th>
-						<?php foreach ($userRoles as $role => $label): ?>
-						<th><?php echo $label; ?></th>
-						<?php endforeach; ?>
-					</tr>
-				</thead>
-				<tbody>
-					<?php
-						$key = 0;
-						foreach ($table as $name => $right):
-							$currentRole = $right['roles'];
-							$currentRoles = get_option($currentRole) ? unserialize(get_option($currentRole)) : array();
-							printf('<tr class="%s">', (++$key % 2 == 1) ? 'odd' : 'even');
-							echo '<td>' . $right['label'].  '</td>';
-							echo '<td>';
-							echo $this->formCheckbox($right['public'], true,
-							array('checked' => (bool) get_option($right['public'])));
-							echo '</td>';
-							foreach ($userRoles as $role => $label):
+					<thead>
+						<tr>
+							<th></th>
+							<th><?php echo __('Public'); ?></th>
+							<?php foreach ($userRoles as $role => $label): ?>
+							<th><?php echo $label; ?></th>
+							<?php endforeach; ?>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+							$key = 0;
+							foreach ($table as $name => $right):
+								$currentRole = $right['roles'];
+								$currentRoles = get_option($currentRole) ? unserialize(get_option($currentRole)) : array();
+								printf('<tr class="%s">', (++$key % 2 == 1) ? 'odd' : 'even');
+								echo '<td>' . $right['label'].  '</td>';
 								echo '<td>';
-								echo $this->formCheckbox($currentRole . '[]', $role,
-								array('checked' => in_array($role, $currentRoles) ? 'checked' : ''));
+								echo $this->formCheckbox($right['public'], true,
+								array('checked' => (bool) get_option($right['public'])));
 								echo '</td>';
+								foreach ($userRoles as $role => $label):
+									echo '<td>';
+									echo $this->formCheckbox($currentRole . '[]', $role,
+									array('checked' => in_array($role, $currentRoles) ? 'checked' : ''));
+									echo '</td>';
+								endforeach;
+								echo '</tr>';
 							endforeach;
-							echo '</tr>';
-						endforeach;
-					?>
-				</tbody>
+						?>
+					</tbody>
 				</table>
 			</div>
 		</div>
