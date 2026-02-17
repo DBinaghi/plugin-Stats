@@ -437,7 +437,7 @@ msgstr ""
 
 #: views/admin/plugins/stats-config-form.php:176
 msgid ""
-"These options allow to parameter the pages where the htis are displayed."
+"These options allow to parameter the pages where the hits are displayed."
 msgstr ""
 
 #: views/admin/plugins/stats-config-form.php:177
