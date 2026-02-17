@@ -1,19 +1,36 @@
+<style>
+	.stats-rights {
+		margin-bottom: 50px;
+	}
+
+	.stats-rights td {
+		vertical-align: middle;
+	}
+	
+	.stats-rights td:not(:first-child) {
+		text-align: center;
+	}
+	
+	.input-block ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+</style>
+
 <fieldset id="fieldset-stats-rights">
 	<legend><?php echo __('Rights and Roles'); ?></legend>
+	<p class="explanation">
+		<?php 
+			echo __('Select access rights for each stats page and each role.');
+			echo ' ' . __('If "public" is checked, all people will have access to the selected data.');
+			echo ' ' . __('To get stats about direct download of original files, a line should be added in ".htaccess".');
+			echo '<br />' . __("%sWarning%s: Shortcodes, helpers and hooks don't follow any rule.", '<strong>', '</strong>'); 
+		?>
+	</p>
 	<div class="field">
-		<div class="two columns alpha">
-			<?php echo $this->formLabel('stats_browse_roles', __('Table of Rights')); ?>
-		</div>
-		<div class="inputs five columns omega">
+		<div class="seven columns alpha omega">
 			<div class="input-block">
-				<p class="explanation">
-					<?php 
-						echo __('Select access rights for each stats page and each role.');
-						echo '<br />' . __('If "public" is checked, all people will have access to the selected data.');
-						echo '<br />' . __('To get stats about direct download of original files, a line should be added in ".htaccess".');
-						echo '<br />' . __("%sWarning%s: Shortcodes, helpers and hooks don't follow any rule.", '<strong>', '</strong>'); 
-					?>
-				</p>
 				<?php
 					$table = array(
 						'summary' => array(
@@ -90,10 +107,12 @@
 
 <fieldset id="fieldset-stats-per-page">
 	<legend><?php echo __('Browse Stats'); ?></legend>
-	<p><?php
-		echo __('These options allow to restrict stats according to status of users.')
-			. ' ' . __('They are used with hooks, helpers and shortcodes, not with direct queries.');
-	?></p>
+	<p class="explanation">
+		<?php
+			echo __('These options allow to restrict stats according to status of users.')
+				. ' ' . __('They are used with hooks, helpers and shortcodes, not with direct queries.');
+		?>
+	</p>
 	<div class="field">
 		<div class="two columns alpha">
 			<?php echo $this->formLabel('stats_default_user_status_admin', __('User status for admin pages')); ?>
