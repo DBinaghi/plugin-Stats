@@ -7,10 +7,12 @@
 		<div class="inputs five columns omega">
 			<div class="input-block">
 				<p class="explanation">
-					<?php echo __('Select access rights for each stats page and each role.');
-					echo '<br />' . __('If "public" is checked, all people will have access to the selected data.');
-					echo '<br />' . __('To get stats about direct download of original files, a line should be added in ".htaccess".');
-					echo '<br />' . __("%sWarning%s: Shortcodes, helpers and hooks don't follow any rule.", '<strong>', '</strong>'); ?>
+					<?php 
+						echo __('Select access rights for each stats page and each role.');
+						echo '<br />' . __('If "public" is checked, all people will have access to the selected data.');
+						echo '<br />' . __('To get stats about direct download of original files, a line should be added in ".htaccess".');
+						echo '<br />' . __("%sWarning%s: Shortcodes, helpers and hooks don't follow any rule.", '<strong>', '</strong>'); 
+					?>
 				</p>
 				<?php
 					$table = array(
@@ -48,7 +50,7 @@
 					$userRoles = get_user_roles();
 					unset($userRoles['super']);
 				?>
-				<table class="stats-righs">
+				<table class="stats-rights">
 				<thead>
 					<tr>
 						<th></th>
@@ -60,25 +62,25 @@
 				</thead>
 				<tbody>
 					<?php
-					$key = 0;
-					foreach ($table as $name => $right):
-						$currentRole = $right['roles'];
-						$currentRoles = get_option($currentRole) ? unserialize(get_option($currentRole)) : array();
-						printf('<tr class="%s">', (++$key % 2 == 1) ? 'odd' : 'even');
-						echo '<td>' . $right['label'].  '</td>';
-						echo '<td>';
-						echo $this->formCheckbox($right['public'], true,
-							array('checked' => (bool) get_option($right['public'])));
-						echo '</td>';
-						foreach ($userRoles as $role => $label):
+						$key = 0;
+						foreach ($table as $name => $right):
+							$currentRole = $right['roles'];
+							$currentRoles = get_option($currentRole) ? unserialize(get_option($currentRole)) : array();
+							printf('<tr class="%s">', (++$key % 2 == 1) ? 'odd' : 'even');
+							echo '<td>' . $right['label'].  '</td>';
 							echo '<td>';
-							echo $this->formCheckbox($currentRole . '[]', $role,
-								array('checked' => in_array($role, $currentRoles) ? 'checked' : ''));
+							echo $this->formCheckbox($right['public'], true,
+							array('checked' => (bool) get_option($right['public'])));
 							echo '</td>';
+							foreach ($userRoles as $role => $label):
+								echo '<td>';
+								echo $this->formCheckbox($currentRole . '[]', $role,
+								array('checked' => in_array($role, $currentRoles) ? 'checked' : ''));
+								echo '</td>';
+							endforeach;
+							echo '</tr>';
 						endforeach;
-						echo '</tr>';
-					endforeach;
-				?>
+					?>
 				</tbody>
 				</table>
 			</div>
@@ -97,14 +99,16 @@
 			<?php echo $this->formLabel('stats_default_user_status_admin', __('User status for admin pages')); ?>
 		</div>
 		<div class="inputs five columns omega">
-			<?php echo $this->formRadio('stats_default_user_status_admin',
+			<?php 
+				echo $this->formRadio('stats_default_user_status_admin',
 				get_option('stats_default_user_status_admin'),
 				null,
 				array(
 					'hits' => __('Total hits'),
 					'hits_anonymous' => __('Anonymous'),
 					'hits_identified' => __('Identified users'),
-				)); ?>
+				)); 
+			?>
 			<p class="explanation">
 				<?php echo __('Choose the default status of users for stats in admin pages.'); ?>
 			</p>
@@ -115,14 +119,16 @@
 			<?php echo $this->formLabel('stats_default_user_status_public', __('User status for public pages')); ?>
 		</div>
 		<div class="inputs five columns omega">
-			<?php echo $this->formRadio('stats_default_user_status_public',
+			<?php 
+				echo $this->formRadio('stats_default_user_status_public',
 				get_option('stats_default_user_status_public'),
 				null,
 				array(
 					'hits' => __('Total hits'),
 					'hits_anonymous' => __('Anonymous'),
 					'hits_identified' => __('Identified users'),
-				)); ?>
+				)); 
+			?>
 			<p class="explanation">
 				<?php echo __('Choose the status of users to restrict stats in public pages.'); ?>
 			</p>
@@ -134,8 +140,10 @@
 		</div>
 		<div class="inputs five columns omega">
 			<div class="input-block">
-				<?php echo $this->formText('stats_per_page_admin',
-					get_option('stats_per_page_admin')); ?>
+				<?php 
+					echo $this->formText('stats_per_page_admin',
+					get_option('stats_per_page_admin')); 
+				?>
 				<p class="explanation">
 					<?php echo __('Limit the number of results displayed per page in the administrative interface.'); ?>
 				</p>
@@ -148,8 +156,10 @@
 		</div>
 		<div class="inputs five columns omega">
 			<div class="input-block">
-				<?php echo $this->formText('stats_per_page_public',
-					get_option('stats_per_page_public')); ?>
+				<?php 
+					echo $this->formText('stats_per_page_public',
+					get_option('stats_per_page_public')); 
+				?>
 				<p class="explanation">
 					<?php echo __('Limit the number of results displayed per page in the public interface.'); ?>
 				</p>
@@ -171,15 +181,17 @@
 					foreach ($displayByHooks as $page) {
 						echo '<li>';
 						echo $this->formCheckbox('stats_display_by_hooks[]', $page,
-							array('checked' => in_array($page, $displayByHooksSelected) ? 'checked' : ''));
+						array('checked' => in_array($page, $displayByHooksSelected) ? 'checked' : ''));
 						echo $page;
 						echo '</li>';
 					}
 				?>
 				</ul>
 				<p class="explanation">
-					<?php echo __('These options allow to parameter the pages where the htis are displayed.');
-					echo ' ' . __('In any case, this is the theme that manages last if hits are displayed or not.'); ?>
+					<?php 
+						echo __('These options allow to parameter the pages where the htis are displayed.');
+						echo ' ' . __('In any case, this is the theme that manages last if hits are displayed or not.'); 
+					?>
 				</p>
 			</div>
 		</div>
@@ -193,7 +205,8 @@
 			<?php echo $this->formLabel('stats_privacy', __('Level of Privacy')); ?>
 		</div>
 		<div class="inputs five columns omega">
-			<?php echo $this->formRadio('stats_privacy',
+			<?php 
+				echo $this->formRadio('stats_privacy',
 				get_option('stats_privacy'),
 				null,
 				array(
@@ -203,9 +216,11 @@
 					'partial_2' => __('Partial IP (first 2 hexs)'),
 					'partial_3' => __('Partial IP (first 3 hexs)'),
 					'clear' => __('Clear IP'),
-				)); ?>
+				)); 
+			?>
 			<p class="explanation">
-				<?php echo __('Choose the level of privacy (default: hashed IP).')
+				<?php 
+					echo __('Choose the level of privacy (default: hashed IP).')
 					. ' ' . __('A change applies only to new hits.');
 				?>
 			</p>
@@ -221,8 +236,8 @@
 		</div>
 		<div class="inputs five columns omega">
 			<?php 
-				echo $this->formCheckbox('stats_excludebots', true,
-					array('checked' => (bool) get_option("stats_excludebots")));
+				echo $this->formCheckbox('stats_excludebots', true, 
+				array('checked' => (bool) get_option("stats_excludebots")));
 			?>
 			<p class="explanation">
 				<?php echo __('By checking this box, all hits which user agent contains the term "bot", "crawler", "spider", etc. will be excluded.'); ?>
