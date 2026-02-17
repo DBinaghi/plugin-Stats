@@ -1,4 +1,5 @@
-<fieldset id="fieldset-stats-rights"><legend><?php echo __('Rights and Roles'); ?></legend>
+<fieldset id="fieldset-stats-rights">
+	<legend><?php echo __('Rights and Roles'); ?></legend>
 	<div class="field">
 		<div class="two columns alpha">
 			<?php echo $this->formLabel('stats_browse_roles', __('Table of Rights')); ?>
@@ -85,7 +86,8 @@
 	</div>
 </fieldset>
 
-<fieldset id="fieldset-stats-per-page"><legend><?php echo __('Browse Stats'); ?></legend>
+<fieldset id="fieldset-stats-per-page">
+	<legend><?php echo __('Browse Stats'); ?></legend>
 	<p><?php
 		echo __('These options allow to restrict stats according to status of users.')
 			. ' ' . __('They are used with hooks, helpers and shortcodes, not with direct queries.');
@@ -156,7 +158,8 @@
 	</div>
 </fieldset>
 
-<fieldset id="fieldset-stats-display-by-hooks"><legend><?php echo __('Display by Hooks'); ?></legend>
+<fieldset id="fieldset-stats-display-by-hooks">
+	<legend><?php echo __('Display by Hooks'); ?></legend>
 	<div class="field">
 		<div class="two columns alpha">
 			<?php echo $this->formLabel('stats_display_by_hooks', __('Pages where hits are shown via hooks')); ?>
@@ -175,7 +178,7 @@
 				?>
 				</ul>
 				<p class="explanation">
-					<?php echo __('These options allow to parameter the pages where the hits are displayed.');
+					<?php echo __('These options allow to parameter the pages where the htis are displayed.');
 					echo ' ' . __('In any case, this is the theme that manages last if hits are displayed or not.'); ?>
 				</p>
 			</div>
@@ -183,7 +186,8 @@
 	</div>
 </fieldset>
 
-<fieldset id="fieldset-stats-privacy"><legend><?php echo __('Privacy'); ?></legend>
+<fieldset id="fieldset-stats-privacy">
+	<legend><?php echo __('Privacy'); ?></legend>
 	<div class="field">
 		<div class="two columns alpha">
 			<?php echo $this->formLabel('stats_privacy', __('Level of Privacy')); ?>
@@ -209,7 +213,8 @@
 	</div>
 </fieldset>
 
-<fieldset id="fieldset-stats-misc"><legend><?php echo __('Misc'); ?></legend>
+<fieldset id="fieldset-stats-misc">
+	<legend><?php echo __('Misc'); ?></legend>
 	<div class="field">
 		<div class="two columns alpha">
 			<?php echo $this->formLabel('stats_excludebots', __('Exclude crawlers/bots')); ?>
