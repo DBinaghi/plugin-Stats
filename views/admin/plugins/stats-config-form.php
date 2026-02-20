@@ -3,6 +3,10 @@
 		margin-bottom: 50px;
 	}
 
+	.stats-rights th {
+		text-align: center;
+	}
+
 	.stats-rights td {
 		vertical-align: middle;
 	}
@@ -13,8 +17,17 @@
 	
 	.input-block ul {
 		list-style-type: none;
-		margin: 0;
+		margin-top: 0;
+		margin-bottom: 0;
 		padding: 0;
+	}
+	
+	.input-block li {
+		margin-bottom: 10px;
+	}
+	
+	.seven.columns.omega {
+		margin-left: 0;
 	}
 </style>
 
@@ -29,7 +42,7 @@
 		?>
 	</p>
 	<div class="field">
-		<div class="seven columns alpha omega">
+		<div class="seven columns omega">
 			<div class="input-block">
 				<?php
 					$table = array(
@@ -118,6 +131,9 @@
 			<?php echo $this->formLabel('stats_default_user_status_admin', __('User status for admin pages')); ?>
 		</div>
 		<div class="inputs five columns omega">
+			<p class="explanation">
+				<?php echo __('Choose the default status of users for stats in admin pages.'); ?>
+			</p>
 			<?php 
 				echo $this->formRadio('stats_default_user_status_admin',
 				get_option('stats_default_user_status_admin'),
@@ -128,9 +144,6 @@
 					'hits_identified' => __('Identified users'),
 				)); 
 			?>
-			<p class="explanation">
-				<?php echo __('Choose the default status of users for stats in admin pages.'); ?>
-			</p>
 		</div>
 	</div>
 	<div class="field">
@@ -138,6 +151,9 @@
 			<?php echo $this->formLabel('stats_default_user_status_public', __('User status for public pages')); ?>
 		</div>
 		<div class="inputs five columns omega">
+			<p class="explanation">
+				<?php echo __('Choose the status of users to restrict stats in public pages.'); ?>
+			</p>
 			<?php 
 				echo $this->formRadio('stats_default_user_status_public',
 				get_option('stats_default_user_status_public'),
@@ -148,9 +164,6 @@
 					'hits_identified' => __('Identified users'),
 				)); 
 			?>
-			<p class="explanation">
-				<?php echo __('Choose the status of users to restrict stats in public pages.'); ?>
-			</p>
 		</div>
 	</div>
 	<div class="field">
@@ -159,13 +172,13 @@
 		</div>
 		<div class="inputs five columns omega">
 			<div class="input-block">
+				<p class="explanation">
+					<?php echo __('Limit the number of results displayed per page in the administrative interface.'); ?>
+				</p>
 				<?php 
 					echo $this->formText('stats_per_page_admin',
 					get_option('stats_per_page_admin')); 
 				?>
-				<p class="explanation">
-					<?php echo __('Limit the number of results displayed per page in the administrative interface.'); ?>
-				</p>
 			</div>
 		</div>
 	</div>
@@ -175,13 +188,13 @@
 		</div>
 		<div class="inputs five columns omega">
 			<div class="input-block">
+				<p class="explanation">
+					<?php echo __('Limit the number of results displayed per page in the public interface.'); ?>
+				</p>
 				<?php 
 					echo $this->formText('stats_per_page_public',
 					get_option('stats_per_page_public')); 
 				?>
-				<p class="explanation">
-					<?php echo __('Limit the number of results displayed per page in the public interface.'); ?>
-				</p>
 			</div>
 		</div>
 	</div>
@@ -194,6 +207,12 @@
 			<?php echo $this->formLabel('stats_display_by_hooks', __('Pages where hits are shown via hooks')); ?>
 		</div>
 		<div class="inputs five columns omega">
+			<p class="explanation">
+				<?php 
+					echo __('Select the pages where the hits are displayed.');
+					echo ' ' . __('In any case, it is the theme to decide last if hits are displayed or not.'); 
+				?>
+			</p>
 			<div class="input-block">
 				<ul>
 				<?php
@@ -206,12 +225,6 @@
 					}
 				?>
 				</ul>
-				<p class="explanation">
-					<?php 
-						echo __('These options allow to parameter the pages where the htis are displayed.');
-						echo ' ' . __('In any case, this is the theme that manages last if hits are displayed or not.'); 
-					?>
-				</p>
 			</div>
 		</div>
 	</div>
@@ -224,6 +237,12 @@
 			<?php echo $this->formLabel('stats_privacy', __('Level of Privacy')); ?>
 		</div>
 		<div class="inputs five columns omega">
+			<p class="explanation">
+				<?php 
+					echo __('Choose the level of privacy (default: hashed IP).')
+					. ' ' . __('A change applies only to new hits.');
+				?>
+			</p>
 			<?php 
 				echo $this->formRadio('stats_privacy',
 				get_option('stats_privacy'),
@@ -237,12 +256,6 @@
 					'clear' => __('Clear IP'),
 				)); 
 			?>
-			<p class="explanation">
-				<?php 
-					echo __('Choose the level of privacy (default: hashed IP).')
-					. ' ' . __('A change applies only to new hits.');
-				?>
-			</p>
 		</div>
 	</div>
 </fieldset>
@@ -257,10 +270,21 @@
 			<?php 
 				echo $this->formCheckbox('stats_excludebots', true, 
 				array('checked' => (bool) get_option("stats_excludebots")));
+				echo __('All hits which user agent contains the term "bot", "crawler", "spider", etc. will be excluded.');
 			?>
-			<p class="explanation">
-				<?php echo __('By checking this box, all hits which user agent contains the term "bot", "crawler", "spider", etc. will be excluded.'); ?>
-			</p>
+		</div>
+	</div>
+
+	<div class="field">
+		<div class="two columns alpha">
+			<?php echo $this->formLabel('stats_enablegraphs', __('Enable Graphs')); ?>
+		</div>
+		<div class="inputs five columns omega">
+			<?php 
+				echo $this->formCheckbox('stats_enablegraphs', true, 
+				array('checked' => (bool) get_option("stats_enablegraphs")));
+				echo __('Adds page with graphs for most common stats.');
+			?>
 		</div>
 	</div>
 </fieldset>
