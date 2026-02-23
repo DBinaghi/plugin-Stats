@@ -8,7 +8,15 @@
             'controller' => 'summary',
             'module' => 'stats',
         );
-    }
+	}
+    if ((bool)get_option('stats_display_graphs')) {
+        $navArray[] = array(
+            'label' => __('Graphs'),
+            'action' => 'graphs',
+            'controller' => 'summary',
+            'module' => 'stats',
+        );
+	}
     if (is_allowed('Stats_Browse', 'by-page')) {
         $navArray[] = array(
             'label' => __('By Page'),
@@ -49,6 +57,6 @@
             'module' => 'stats',
         );
     }
-    echo nav($navArray, 'admin_navigation_settings');
+	echo nav($navArray, 'admin_navigation_settings');
 ?>
 </nav>
