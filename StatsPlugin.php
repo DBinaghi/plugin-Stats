@@ -77,11 +77,14 @@ class StatsPlugin extends Omeka_Plugin_AbstractPlugin
 		'stats_per_page_admin' => 100,
 		'stats_per_page_public' => 10,
 		'stats_display_by_hooks' => 'a:10:{i:0;s:15:"admin_dashboard";i:1;s:24:"admin_items_show_sidebar";i:2;s:30:"admin_collections_show_sidebar";i:3;s:24:"admin_files_show_sidebar";i:4;s:30:"admin_items_browse_simple_each";i:5;s:32:"admin_items_browse_detailed_each";i:6;s:17:"public_items_show";i:7;s:24:"public_items_browse_each";i:8;s:23:"public_collections_show";i:9;s:30:"public_collections_browse_each";}',
+		'stats_display_graphs' => 0,
+		'stats_display_pagination_bottom' => 0,
+		'stats_display_quickfilter_bottom' => 0,
+		'stats_sort_exaequo' => 1,
 		// Privacy settings.
 		'stats_privacy' => 'hashed',
 		// Miscellaneous.
-		'stats_excludebots' => 0,
-		'stats_enablegraphs' => 0
+		'stats_excludebots' => 0
 	);
 
 	/**
@@ -263,7 +266,7 @@ class StatsPlugin extends Omeka_Plugin_AbstractPlugin
 					'public' => 'stats_public_allow_summary',
 					'roles' => 'stats_roles_summary',
 					'privileges' => null,
-				),
+				)
 			),
 			'Stats_Browse' => array(
 				'browse_pages' => array(
