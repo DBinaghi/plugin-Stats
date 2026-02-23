@@ -93,6 +93,53 @@ class Stats_SummaryController extends Omeka_Controller_AbstractActionController
     }
 
     /**
+     * Graphs action.
+     */
+    public function graphsAction()
+    {
+        $tableHit = $this->_tableHit;
+		$dateNow = new DateTime();
+		
+		// statistics for hits during the last 30 days
+		for ($i = 29; $i >= 0; $i--) {
+			$date = date('d', strtotime('-' . $i . ' days')) . ' ' . $this->_months(date('n', strtotime('-' . $i . ' days')), true);
+			$time1 = strtotime(date('Y-m-d', strtotime('-' . $i . ' days'))); 
+			$time2 = $time1;
+			$results['last30Days'][$date] = $this->_statsPeriod($time1, $time2);
+		}
+		
+		// statistics for hits during the last 12 months
+		for ($i = 11; $i > 0; $i--) {
+			$date = $this->_months(date('n', strtotime('-' . $i . ' months')), true) . ' ' . date(' \'y', strtotime('-' . $i . ' months'));
+			$time1 = strtotime(date('Y-m-1', strtotime('-' . $i . ' months'))); 
+			$time2 = strtotime(date('Y-m-1', strtotime('-' . ($i - 1) . ' months'))); 
+			$results['last12Months'][$date] = $this->_statsPeriod($time1, $time2);
+		}
+		$date = $this->_months(date('n'), true) . ' ' . date(' \'y');
+		$time1 = strtotime(date('Y-m-1')); 
+		$time2 = strtotime(date('Y-m-1', strtotime('+1 months'))); 
+		$results['last12Months'][$date] = $this->_statsPeriod($time1, $time2);
+		
+		// statistics for hits by year
+		for ($year = substr($tableHit->getEndDate(), 0, 4); $year <= date('Y'); $year++) {
+			$time1 = strtotime($year . '-1-1');
+			$time2 = strtotime($year . '-12-31');
+			$results['perYear'][$year] = $this->_statsPeriod($time1, $time2);
+		}
+
+		// statistics for hits by user agent and language
+		if (is_allowed('Stats_Browse', 'by-field')) {
+			$results['most_frequent_fields'] = array();
+			$results['most_frequent_fields']['user_agent'] = $tableHit->getMostFrequents('user_agent', null, 10);
+			$results['most_frequent_fields']['accept_language'] = $tableHit->getMostFrequents('accept_language', null, 100);
+		}
+		
+		$this->view->assign(array(
+            'results' => $results
+        ));
+	}
+	
+    /**
      * Helper to get all stats of a period.
      *
      * @param integer $startPeriod Number of days before today (default is all).
@@ -126,5 +173,29 @@ class Stats_SummaryController extends Omeka_Controller_AbstractActionController
         }
 
         return $result;
-     }
+    }
+	
+	private function _months($month = 0, $shorten = false)
+	{
+		$months = array(
+			__('January'),
+			__('February'),
+			__('March'),
+			__('April'),
+			__('May'),
+			__('June'),
+			__('July'),
+			__('August'),
+			__('September'),
+			__('October'),
+			__('November'),
+			__('December')
+		);
+
+		if ($shorten) {
+			return substr($months[$month - 1], 0, 3);
+		} else {
+			return $months[$month - 1];
+		}
+	}
 }
