@@ -12,9 +12,9 @@
 ?>
 
 <div id="primary">
-    <?php echo flash(); ?>
+	<?php echo flash(); ?>
 
-    <?php echo common('quick-filters', array('stats_type' => $stats_type)); ?>
+	<?php echo common('quick-filters', array('stats_type' => $stats_type)); ?>
 
 	<?php 
 		if ($total_results):
@@ -65,25 +65,25 @@
 								echo $stat->getHumanRecordType();
 							endif; ?>
 						</td>
-						<td>
+						<td class="stats-date-time">
 							<?php echo html_escape(format_date($stat->modified, Zend_Date::DATETIME_SHORT)); ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>
 		</table>
-		<?php echo pagination_links(); ?>
+		<?php if (get_option('stats_display_pagination_bottom')) echo pagination_links(); ?>
 	<?php else: ?>
 		<br class="clear" />
 		<?php if (total_records('Stat') == 0): ?>
 			<h2><?php echo __('There is no stat yet.'); ?></h2>
 		<?php else: ?>
-			<p><?php echo __('The query searched %s rows and returned no results.', total_records('Stat')); ?></p>
+			<p><?php echo __('The query searched %s rows and returned no results.', '<b>' . total_records('Stat') . '</b>'); ?></p>
 			<p><a href="<?php echo url('stats/browse/by-' . $stats_type); ?>"><?php echo __('See all stats.'); ?></a></p>
 		<?php endif; ?>
 	<?php endif; ?>
 
-    <?php echo common('quick-filters', array('stats_type' => $stats_type)); ?>
+	<?php if (total_records('Stat') > 0 && get_option('stats_display_quickfilter_bottom')) echo common('quick-filters', array('stats_type' => $stats_type)); ?>
 </div>
 
 <?php echo foot(); ?>
