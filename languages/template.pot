@@ -7,127 +7,131 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Stats\n"
 "Report-Msgid-Bugs-To: http://github.com/Daniel-KM/Stats/issues\n"
-"POT-Creation-Date: 2014-08-04 02:47+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2026-02-24 01:00+0100\n"
+"PO-Revision-Date: 2026-02-24 01:00+0100\n"
+"Last-Translator: Daniele Binaghi\n"
+"Language-Team: \n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
 
-#: StatsPlugin.php:363 StatsPlugin.php:386 StatsPlugin.php:469
-#: StatsPlugin.php:482 StatsPlugin.php:519
-#: views/admin/browse/by-collection.php:2 views/admin/summary/index.php:2
-#: views/public/summary/index.php:2
+#: StatsPlugin.php:369 StatsPlugin.php:392 StatsPlugin.php:475
+#: StatsPlugin.php:500 StatsPlugin.php:535
+#: views/admin/browse/by-collection.php:2 views/admin/summary/graphs.php:2
+#: views/admin/summary/index.php:2 views/public/summary/index.php:2
 msgid "Stats"
 msgstr ""
 
-#: StatsPlugin.php:375 StatsPlugin.php:397
+#: StatsPlugin.php:381 StatsPlugin.php:403
 #, php-format
 msgid "Views: %d (position %d)"
 msgstr ""
 
-#: StatsPlugin.php:411
+#: StatsPlugin.php:417
 #, php-format
 msgid "Views: %d (%d anonymous / %d identified users)"
 msgstr ""
 
-#: StatsPlugin.php:417
+#: StatsPlugin.php:423
 #, php-format
 msgid "Position: %d (%d anonymous / %d identified users)"
 msgstr ""
 
-#: StatsPlugin.php:501
+#: StatsPlugin.php:517
 msgid "hits"
 msgstr ""
 
-#: StatsPlugin.php:522 views/public/summary/index.php:13
+#: StatsPlugin.php:538 views/public/summary/index.php:17
 #, php-format
 msgid "Total Hits: %d"
 msgstr ""
 
-#: StatsPlugin.php:526
+#: StatsPlugin.php:542
 msgid "Last 30 days"
 msgstr ""
 
-#: StatsPlugin.php:527
+#: StatsPlugin.php:543
 msgid "Last 7 days"
 msgstr ""
 
-#: StatsPlugin.php:528 controllers/SummaryController.php:66
+#: StatsPlugin.php:544 controllers/SummaryController.php:66
 msgid "Last 24 hours"
 msgstr ""
 
-#: StatsPlugin.php:544 views/admin/summary/index.php:61
-#: views/public/summary/index.php:56
+#: StatsPlugin.php:560 views/admin/summary/index.php:75
+#: views/public/summary/index.php:66
 msgid "Most viewed public pages"
 msgstr ""
 
-#: StatsPlugin.php:546 StatsPlugin.php:566 StatsPlugin.php:580
-#: StatsPlugin.php:596 views/admin/summary/index.php:63
-#: views/admin/summary/index.php:85 views/admin/summary/index.php:107
-#: views/admin/summary/index.php:129 views/public/summary/index.php:58
-#: views/public/summary/index.php:78 views/public/summary/index.php:98
+#: StatsPlugin.php:562 StatsPlugin.php:582 StatsPlugin.php:596
+#: StatsPlugin.php:612 views/admin/summary/index.php:77
+#: views/admin/summary/index.php:102 views/admin/summary/index.php:127
+#: views/admin/summary/index.php:152 views/public/summary/index.php:68
+#: views/public/summary/index.php:89 views/public/summary/index.php:110
 #: views/shared/common/most-frequents.php:2
 msgid "None"
 msgstr ""
 
-#: StatsPlugin.php:552 StatsPlugin.php:571 StatsPlugin.php:585
-#: views/public/summary/index.php:63 views/public/summary/index.php:83
+#: StatsPlugin.php:568 StatsPlugin.php:587 StatsPlugin.php:601
+#: views/public/summary/index.php:73 views/public/summary/index.php:94
 #: views/shared/common/most-frequents.php:7
 #, php-format
 msgid "%s (%d views)"
 msgstr ""
 
-#: StatsPlugin.php:564
+#: StatsPlugin.php:580
 msgid "Most viewed public item"
 msgstr ""
 
-#: StatsPlugin.php:572 StatsPlugin.php:586 StatsPlugin.php:602
+#: StatsPlugin.php:588 StatsPlugin.php:602 StatsPlugin.php:618
 #: views/helpers/Stats.php:350
 msgid "Deleted"
 msgstr ""
 
-#: StatsPlugin.php:578
+#: StatsPlugin.php:594
 msgid "Most viewed public collection"
 msgstr ""
 
-#: StatsPlugin.php:594
+#: StatsPlugin.php:610
 msgid "Most downloaded file"
 msgstr ""
 
-#: StatsPlugin.php:601 views/public/summary/index.php:103
+#: StatsPlugin.php:617 views/public/summary/index.php:115
 #, php-format
 msgid "%s (%d downloads)"
 msgstr ""
 
-#: StatsPlugin.php:609
+#: StatsPlugin.php:625
 msgid "Most frequent fields"
 msgstr ""
 
-#: StatsPlugin.php:612
+#: StatsPlugin.php:628
 msgid "Referrer"
 msgstr ""
 
-#: StatsPlugin.php:613
+#: StatsPlugin.php:629
 msgid "Query"
 msgstr ""
 
-#: StatsPlugin.php:614
+#: StatsPlugin.php:630
 msgid "User Agent"
 msgstr ""
 
-#: StatsPlugin.php:615
+#: StatsPlugin.php:631
 msgid "Accepted Language"
 msgstr ""
 
-#: StatsPlugin.php:620
+#: StatsPlugin.php:636
 #, php-format
 msgid "%s: None"
 msgstr ""
 
-#: StatsPlugin.php:624
+#: StatsPlugin.php:640
 #, php-format
 msgid "%s: %s (%d%%)"
 msgstr ""
@@ -150,7 +154,7 @@ msgstr ""
 msgid "Accepted Languages"
 msgstr ""
 
-#: controllers/DownloadController.php:40
+#: controllers/DownloadController.php:41
 msgid "This file doesn't exist."
 msgstr ""
 
@@ -191,6 +195,66 @@ msgstr ""
 msgid "Last %s days"
 msgstr ""
 
+#: controllers/SummaryController.php:181
+#: views/admin/browse/by-collection.php:29
+msgid "January"
+msgstr ""
+
+#: controllers/SummaryController.php:182
+#: views/admin/browse/by-collection.php:30
+msgid "February"
+msgstr ""
+
+#: controllers/SummaryController.php:183
+#: views/admin/browse/by-collection.php:31
+msgid "March"
+msgstr ""
+
+#: controllers/SummaryController.php:184
+#: views/admin/browse/by-collection.php:32
+msgid "April"
+msgstr ""
+
+#: controllers/SummaryController.php:185
+#: views/admin/browse/by-collection.php:33
+msgid "May"
+msgstr ""
+
+#: controllers/SummaryController.php:186
+#: views/admin/browse/by-collection.php:34
+msgid "June"
+msgstr ""
+
+#: controllers/SummaryController.php:187
+#: views/admin/browse/by-collection.php:35
+msgid "July"
+msgstr ""
+
+#: controllers/SummaryController.php:188
+#: views/admin/browse/by-collection.php:36
+msgid "August"
+msgstr ""
+
+#: controllers/SummaryController.php:189
+#: views/admin/browse/by-collection.php:37
+msgid "September"
+msgstr ""
+
+#: controllers/SummaryController.php:190
+#: views/admin/browse/by-collection.php:38
+msgid "October"
+msgstr ""
+
+#: controllers/SummaryController.php:191
+#: views/admin/browse/by-collection.php:39
+msgid "November"
+msgstr ""
+
+#: controllers/SummaryController.php:192
+#: views/admin/browse/by-collection.php:40
+msgid "December"
+msgstr ""
+
 #: models/Hit.php:576
 msgid "Url is required."
 msgstr ""
@@ -199,96 +263,52 @@ msgstr ""
 msgid "Type should be \"page\" or \"record\"."
 msgstr ""
 
-#: views/admin/browse/by-collection.php:14
+#: views/admin/browse/by-collection.php:17
 #: views/shared/common/quick-filters.php:17
-#: views/shared/common/stats-nav.php:46
+#: views/shared/common/stats-nav.php:54
 msgid "By Collection"
 msgstr ""
 
-#: views/admin/browse/by-collection.php:19
+#: views/admin/browse/by-collection.php:22
 msgid "All years"
 msgstr ""
 
-#: views/admin/browse/by-collection.php:26
-msgid "January"
-msgstr ""
-
-#: views/admin/browse/by-collection.php:27
-msgid "February"
-msgstr ""
-
-#: views/admin/browse/by-collection.php:28
-msgid "March"
-msgstr ""
-
-#: views/admin/browse/by-collection.php:29
-msgid "April"
-msgstr ""
-
-#: views/admin/browse/by-collection.php:30
-msgid "May"
-msgstr ""
-
-#: views/admin/browse/by-collection.php:31
-msgid "June"
-msgstr ""
-
-#: views/admin/browse/by-collection.php:32
-msgid "July"
-msgstr ""
-
-#: views/admin/browse/by-collection.php:33
-msgid "August"
-msgstr ""
-
-#: views/admin/browse/by-collection.php:34
-msgid "September"
-msgstr ""
-
-#: views/admin/browse/by-collection.php:35
-msgid "October"
-msgstr ""
-
-#: views/admin/browse/by-collection.php:36
-msgid "November"
-msgstr ""
-
-#: views/admin/browse/by-collection.php:37
-msgid "December"
-msgstr ""
-
-#: views/admin/browse/by-collection.php:40
+#: views/admin/browse/by-collection.php:43
 msgid "All months"
 msgstr ""
 
-#: views/admin/browse/by-collection.php:45
+#: views/admin/browse/by-collection.php:48
 msgid "Filter"
 msgstr ""
 
-#: views/admin/browse/by-collection.php:54 views/admin/browse/by-field.php:26
-#: views/admin/browse/by-stat.php:22 views/public/browse/by-field.php:27
-#: views/public/browse/by-stat.php:23
+#: views/admin/browse/by-collection.php:56
+msgid "Collection"
+msgstr ""
+
+#: views/admin/browse/by-collection.php:57 views/admin/browse/by-field.php:31
+#: views/admin/browse/by-stat.php:28 views/public/browse/by-field.php:28
+#: views/public/browse/by-stat.php:30
 msgid "Hits"
 msgstr ""
 
-#: views/admin/browse/by-collection.php:56
+#: views/admin/browse/by-collection.php:59
 msgid "Hits (including sub-collections)"
 msgstr ""
 
-#: views/admin/browse/by-collection.php:77 views/admin/browse/by-field.php:47
-#: views/public/browse/by-field.php:48
+#: views/admin/browse/by-collection.php:80 views/admin/browse/by-field.php:52
+#: views/public/browse/by-field.php:49
 msgid "There is no hit yet."
 msgstr ""
 
-#: views/admin/browse/by-collection.php:79 views/admin/browse/by-field.php:49
-#: views/public/browse/by-field.php:50
+#: views/admin/browse/by-collection.php:82 views/admin/browse/by-field.php:54
+#: views/public/browse/by-field.php:51
 #, php-format
 msgid "The query searched %s hits and returned no results."
 msgstr ""
 
-#: views/admin/browse/by-collection.php:80 views/admin/browse/by-field.php:50
-#: views/admin/browse/by-stat.php:76 views/public/browse/by-field.php:51
-#: views/public/browse/by-stat.php:69
+#: views/admin/browse/by-collection.php:84 views/admin/browse/by-field.php:55
+#: views/admin/browse/by-stat.php:82 views/public/browse/by-field.php:52
+#: views/public/browse/by-stat.php:74
 msgid "See all stats."
 msgstr ""
 
@@ -298,262 +318,340 @@ msgstr ""
 msgid "Stats (%s total)"
 msgstr ""
 
-#: views/admin/browse/by-field.php:14
+#: views/admin/browse/by-field.php:17
 #, php-format
 msgid "By %s (%s)"
 msgstr ""
 
-#: views/admin/browse/by-field.php:15 views/public/browse/by-field.php:16
+#: views/admin/browse/by-field.php:18 views/public/browse/by-field.php:17
 #, php-format
 msgid "[%d filled values / %d total hits]"
 msgstr ""
 
-#: views/admin/browse/by-stat.php:21 views/public/browse/by-stat.php:22
+#: views/admin/browse/by-stat.php:27 views/public/browse/by-stat.php:29
 msgid "Page"
 msgstr ""
 
-#: views/admin/browse/by-stat.php:23
-#: views/admin/plugins/stats-config-form.php:102
-#: views/admin/plugins/stats-config-form.php:120
-#: views/admin/plugins/stats-config-form.php:193
+#: views/admin/browse/by-stat.php:29
+#: views/admin/plugins/stats-config-form.php:143
+#: views/admin/plugins/stats-config-form.php:164
+#: views/admin/plugins/stats-config-form.php:310
+#: views/admin/summary/graphs.php:40 views/admin/summary/graphs.php:93
+#: views/admin/summary/graphs.php:146
 msgid "Anonymous"
 msgstr ""
 
-#: views/admin/browse/by-stat.php:24
+#: views/admin/browse/by-stat.php:30 views/admin/summary/graphs.php:44
+#: views/admin/summary/graphs.php:97 views/admin/summary/graphs.php:150
 msgid "Identified"
 msgstr ""
 
-#: views/admin/browse/by-stat.php:25 views/public/browse/by-stat.php:24
+#: views/admin/browse/by-stat.php:31 views/public/browse/by-stat.php:31
 msgid "Dedicated Record"
 msgstr ""
 
-#: views/admin/browse/by-stat.php:73 views/public/browse/by-stat.php:66
+#: views/admin/browse/by-stat.php:32 views/public/browse/by-stat.php:32
+msgid "Record Type"
+msgstr ""
+
+#: views/admin/browse/by-stat.php:33 views/public/browse/by-stat.php:33
+msgid "Date"
+msgstr ""
+
+#: views/admin/browse/by-stat.php:79 views/public/browse/by-stat.php:71
 msgid "There is no stat yet."
 msgstr ""
 
-#: views/admin/browse/by-stat.php:75 views/public/browse/by-stat.php:68
+#: views/admin/browse/by-stat.php:81 views/public/browse/by-stat.php:73
 #, php-format
 msgid "The query searched %s rows and returned no results."
 msgstr ""
 
-#: views/admin/plugins/stats-config-form.php:1
+#: views/admin/plugins/stats-config-form.php:35
 msgid "Rights and Roles"
 msgstr ""
 
-#: views/admin/plugins/stats-config-form.php:4
-msgid "Table of Rights"
-msgstr ""
-
-#: views/admin/plugins/stats-config-form.php:9
+#: views/admin/plugins/stats-config-form.php:38
 msgid "Select access rights for each stats page and each role."
 msgstr ""
 
-#: views/admin/plugins/stats-config-form.php:10
+#: views/admin/plugins/stats-config-form.php:39
 msgid ""
 "If \"public\" is checked, all people will have access to the selected data."
 msgstr ""
 
-#: views/admin/plugins/stats-config-form.php:11
+#: views/admin/plugins/stats-config-form.php:40
 msgid ""
 "To get stats about direct download of original files, a line should be added "
 "in \".htaccess\"."
 msgstr ""
 
-#: views/admin/plugins/stats-config-form.php:12
+#: views/admin/plugins/stats-config-form.php:41
 #, php-format
 msgid "%sWarning%s: Shortcodes, helpers and hooks don't follow any rule."
 msgstr ""
 
-#: views/admin/plugins/stats-config-form.php:17
+#: views/admin/plugins/stats-config-form.php:50
 msgid "View Summary"
 msgstr ""
 
-#: views/admin/plugins/stats-config-form.php:22
+#: views/admin/plugins/stats-config-form.php:55
 msgid "Browse by Page"
 msgstr ""
 
-#: views/admin/plugins/stats-config-form.php:27
+#: views/admin/plugins/stats-config-form.php:60
 msgid "Browse by Record"
 msgstr ""
 
-#: views/admin/plugins/stats-config-form.php:32
+#: views/admin/plugins/stats-config-form.php:65
 msgid "Browse by Download"
 msgstr ""
 
-#: views/admin/plugins/stats-config-form.php:37
+#: views/admin/plugins/stats-config-form.php:70
 msgid "Browse by Field"
 msgstr ""
 
-#: views/admin/plugins/stats-config-form.php:42
+#: views/admin/plugins/stats-config-form.php:75
 msgid "Browse by Collection"
 msgstr ""
 
 #: views/admin/plugins/stats-config-form.php:87
-msgid "Browse Stats"
+msgid "Public"
 msgstr ""
 
-#: views/admin/plugins/stats-config-form.php:89
+#: views/admin/plugins/stats-config-form.php:122
+msgid "User Status"
+msgstr ""
+
+#: views/admin/plugins/stats-config-form.php:125
 msgid "These options allow to restrict stats according to status of users."
 msgstr ""
 
-#: views/admin/plugins/stats-config-form.php:90
+#: views/admin/plugins/stats-config-form.php:126
 msgid ""
 "They are used with hooks, helpers and shortcodes, not with direct queries."
 msgstr ""
 
-#: views/admin/plugins/stats-config-form.php:94
+#: views/admin/plugins/stats-config-form.php:131
 msgid "User status for admin pages"
 msgstr ""
 
-#: views/admin/plugins/stats-config-form.php:101
-#: views/admin/plugins/stats-config-form.php:119
-msgid "Total hits"
-msgstr ""
-
-#: views/admin/plugins/stats-config-form.php:103
-#: views/admin/plugins/stats-config-form.php:121
-msgid "Identified users"
-msgstr ""
-
-#: views/admin/plugins/stats-config-form.php:106
+#: views/admin/plugins/stats-config-form.php:135
 msgid "Choose the default status of users for stats in admin pages."
 msgstr ""
 
-#: views/admin/plugins/stats-config-form.php:112
+#: views/admin/plugins/stats-config-form.php:142
+#: views/admin/plugins/stats-config-form.php:163
+msgid "Total hits"
+msgstr ""
+
+#: views/admin/plugins/stats-config-form.php:144
+#: views/admin/plugins/stats-config-form.php:165
+msgid "Identified users"
+msgstr ""
+
+#: views/admin/plugins/stats-config-form.php:152
 msgid "User status for public pages"
 msgstr ""
 
-#: views/admin/plugins/stats-config-form.php:124
+#: views/admin/plugins/stats-config-form.php:156
 msgid "Choose the status of users to restrict stats in public pages."
 msgstr ""
 
-#: views/admin/plugins/stats-config-form.php:157
-msgid "Display by Hooks"
-msgstr ""
-
-#: views/admin/plugins/stats-config-form.php:160
-msgid "Pages where hits are shown via hooks"
-msgstr ""
-
-#: views/admin/plugins/stats-config-form.php:176
-msgid ""
-"These options allow to parameter the pages where the hits are displayed."
+#: views/admin/plugins/stats-config-form.php:173
+msgid "View Stats"
 msgstr ""
 
 #: views/admin/plugins/stats-config-form.php:177
+msgid "Results Per Page (admin)"
+msgstr ""
+
+#: views/admin/plugins/stats-config-form.php:182
 msgid ""
-"In any case, this is the theme that manages last if hits are displayed or "
-"not."
-msgstr ""
-
-#: views/admin/plugins/stats-config-form.php:183
-msgid "Privacy"
-msgstr ""
-
-#: views/admin/plugins/stats-config-form.php:186
-msgid "Level of Privacy"
+"Limit the number of results displayed per page in the administrative "
+"interface."
 msgstr ""
 
 #: views/admin/plugins/stats-config-form.php:194
-msgid "Hashed IP"
+msgid "Results Per Page (public)"
 msgstr ""
 
-#: views/admin/plugins/stats-config-form.php:195
-msgid "Partial IP (first hex)"
-msgstr ""
-
-#: views/admin/plugins/stats-config-form.php:196
-msgid "Partial IP (first 2 hexs)"
-msgstr ""
-
-#: views/admin/plugins/stats-config-form.php:197
-msgid "Partial IP (first 3 hexs)"
-msgstr ""
-
-#: views/admin/plugins/stats-config-form.php:198
-msgid "Clear IP"
-msgstr ""
-
-#: views/admin/plugins/stats-config-form.php:201
-msgid "Choose the level of privacy (default: hashed IP)."
-msgstr ""
-
-#: views/admin/plugins/stats-config-form.php:202
-msgid "A change applies only to new hits."
-msgstr ""
-
-#: views/admin/plugins/stats-config-form.php:208
-msgid "Misc"
+#: views/admin/plugins/stats-config-form.php:199
+msgid "Limit the number of results displayed per page in the public interface."
 msgstr ""
 
 #: views/admin/plugins/stats-config-form.php:211
+msgid "Show Charts"
+msgstr ""
+
+#: views/admin/plugins/stats-config-form.php:217
+msgid "Displays extra tab with charts for some selected stats (Admin side)."
+msgstr ""
+
+#: views/admin/plugins/stats-config-form.php:224
+msgid "Display Bottom Pagination"
+msgstr ""
+
+#: views/admin/plugins/stats-config-form.php:230
+msgid "Displays pagination links also under the tables."
+msgstr ""
+
+#: views/admin/plugins/stats-config-form.php:237
+msgid "Display Bottom Quick Filter"
+msgstr ""
+
+#: views/admin/plugins/stats-config-form.php:243
+msgid "Displays quick filter also under the tables."
+msgstr ""
+
+#: views/admin/plugins/stats-config-form.php:250
+msgid "Sort Ex-Aequo"
+msgstr ""
+
+#: views/admin/plugins/stats-config-form.php:256
+msgid ""
+"Adds an additional sorting condition, for ex-aequo cases (warning: can "
+"considerably slow down the page loading time)."
+msgstr ""
+
+#: views/admin/plugins/stats-config-form.php:263
+msgid "Display by Hooks"
+msgstr ""
+
+#: views/admin/plugins/stats-config-form.php:266
+msgid "Hooks Showing Hits"
+msgstr ""
+
+#: views/admin/plugins/stats-config-form.php:271
+msgid "Select the hooks that will display hits in specific pages."
+msgstr ""
+
+#: views/admin/plugins/stats-config-form.php:272
+msgid ""
+"In any case, it is the theme to decide last if hits are displayed or not."
+msgstr ""
+
+#: views/admin/plugins/stats-config-form.php:293
+msgid "Privacy"
+msgstr ""
+
+#: views/admin/plugins/stats-config-form.php:296
+msgid "Level of Privacy"
+msgstr ""
+
+#: views/admin/plugins/stats-config-form.php:301
+msgid "Choose the level of privacy (default: hashed IP)."
+msgstr ""
+
+#: views/admin/plugins/stats-config-form.php:302
+msgid "A change applies only to new hits."
+msgstr ""
+
+#: views/admin/plugins/stats-config-form.php:311
+msgid "Hashed IP"
+msgstr ""
+
+#: views/admin/plugins/stats-config-form.php:312
+msgid "Partial IP (first hex)"
+msgstr ""
+
+#: views/admin/plugins/stats-config-form.php:313
+msgid "Partial IP (first 2 hexs)"
+msgstr ""
+
+#: views/admin/plugins/stats-config-form.php:314
+msgid "Partial IP (first 3 hexs)"
+msgstr ""
+
+#: views/admin/plugins/stats-config-form.php:315
+msgid "Clear IP"
+msgstr ""
+
+#: views/admin/plugins/stats-config-form.php:323
+msgid "Misc"
+msgstr ""
+
+#: views/admin/plugins/stats-config-form.php:326
 msgid "Exclude crawlers/bots"
 msgstr ""
 
-#: views/admin/plugins/stats-config-form.php:219
+#: views/admin/plugins/stats-config-form.php:332
 msgid ""
-"By checking this box, all hits which user agent contains the term \"bot\", "
-"\"crawler\", \"spider\", etc. will be excluded."
+"All hits which user agent contains the term \"bot\", \"crawler\", "
+"\"spider\", etc. will be excluded."
 msgstr ""
 
-#: views/admin/summary/index.php:12
+#: views/admin/summary/graphs.php:20
+msgid "Hits in the last 30 days"
+msgstr ""
+
+#: views/admin/summary/graphs.php:73
+msgid "Hits in the last 12 months"
+msgstr ""
+
+#: views/admin/summary/graphs.php:126
+msgid "Hits per year"
+msgstr ""
+
+#: views/admin/summary/graphs.php:179 views/admin/summary/index.php:177
+#: views/public/summary/index.php:130
+msgid "Most frequent accepted languages"
+msgstr ""
+
+#: views/admin/summary/index.php:18
 #, php-format
 msgid "Total Hits: %d [%d anonymous / %d identified]"
 msgstr ""
 
-#: views/admin/summary/index.php:17
+#: views/admin/summary/index.php:26
 #, php-format
 msgid "Today: %d [%d / %d]"
 msgstr ""
 
-#: views/admin/summary/index.php:24 views/public/summary/index.php:19
+#: views/admin/summary/index.php:35 views/public/summary/index.php:26
 msgid "History"
 msgstr ""
 
-#: views/admin/summary/index.php:36 views/public/summary/index.php:31
+#: views/admin/summary/index.php:48 views/public/summary/index.php:39
 msgid "Current"
 msgstr ""
 
-#: views/admin/summary/index.php:48 views/public/summary/index.php:43
+#: views/admin/summary/index.php:61 views/public/summary/index.php:52
 msgid "Rolling Period"
 msgstr ""
 
-#: views/admin/summary/index.php:68 views/admin/summary/index.php:90
-#: views/admin/summary/index.php:112
+#: views/admin/summary/index.php:83 views/admin/summary/index.php:108
+#: views/admin/summary/index.php:133
 #, php-format
 msgid "%s (%d views [%d / %d])"
 msgstr ""
 
-#: views/admin/summary/index.php:83 views/public/summary/index.php:76
+#: views/admin/summary/index.php:100 views/public/summary/index.php:87
 msgid "Most viewed public records"
 msgstr ""
 
-#: views/admin/summary/index.php:105
+#: views/admin/summary/index.php:125
 msgid "Most viewed public collections"
 msgstr ""
 
-#: views/admin/summary/index.php:127 views/public/summary/index.php:96
+#: views/admin/summary/index.php:150 views/public/summary/index.php:108
 msgid "Most downloaded files"
 msgstr ""
 
-#: views/admin/summary/index.php:134
+#: views/admin/summary/index.php:158
 #, php-format
 msgid "%s (%d downloads [%d / %d])"
 msgstr ""
 
-#: views/admin/summary/index.php:148 views/public/summary/index.php:115
+#: views/admin/summary/index.php:175 views/public/summary/index.php:128
 msgid "Most frequent external referrers"
 msgstr ""
 
-#: views/admin/summary/index.php:149 views/public/summary/index.php:116
+#: views/admin/summary/index.php:176 views/public/summary/index.php:129
 msgid "Most frequent queries"
 msgstr ""
 
-#: views/admin/summary/index.php:150 views/public/summary/index.php:117
-msgid "Most frequent accepted languages"
-msgstr ""
-
-#: views/admin/summary/index.php:151 views/public/summary/index.php:118
+#: views/admin/summary/index.php:178 views/public/summary/index.php:131
 msgid "Most frequent browsers"
 msgstr ""
 
@@ -581,9 +679,25 @@ msgstr ""
 msgid "identified users"
 msgstr ""
 
-#: views/public/summary/index.php:15
+#: views/public/browse/by-field.php:16
+#, php-format
+msgid "By %s"
+msgstr ""
+
+#: views/public/summary/index.php:21
 #, php-format
 msgid "Today: %d"
+msgstr ""
+
+#: views/shared/common/quick-filters.php:2
+#: views/shared/common/quick-filters.php:4
+msgid "Quick Filter"
+msgstr ""
+
+#: views/shared/common/quick-filters.php:9
+#: views/shared/common/quick-filters.php:15
+#: views/shared/common/quick-filters.php:29
+msgid "View All"
 msgstr ""
 
 #: views/shared/common/quick-filters.php:10
@@ -627,18 +741,22 @@ msgid "Summary"
 msgstr ""
 
 #: views/shared/common/stats-nav.php:14
-msgid "By Page"
+msgid "Charts"
 msgstr ""
 
 #: views/shared/common/stats-nav.php:22
-msgid "By Record"
+msgid "By Page"
 msgstr ""
 
 #: views/shared/common/stats-nav.php:30
-msgid "By Download"
+msgid "By Record"
 msgstr ""
 
 #: views/shared/common/stats-nav.php:38
+msgid "By Download"
+msgstr ""
+
+#: views/shared/common/stats-nav.php:46
 msgid "By Field"
 msgstr ""
 
