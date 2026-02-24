@@ -20,7 +20,7 @@ be browsed by public);
 - respect of privacy (if wanted!).
 
 On the other hand, some advanced features are not implemented, especially
-a detailled board with advanced filters. Nevertheless, logs and data can be
+a detailed board with advanced filters. Nevertheless, logs and data can be
 exported via mysql to a spreadsheet like [LibreOffice] or another specialized
 statistic tool, where any stats can be calculated.
 
