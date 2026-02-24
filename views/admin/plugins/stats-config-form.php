@@ -29,6 +29,10 @@
 	.seven.columns.omega {
 		margin-left: 0;
 	}
+	
+	input[type="checkbox"] + span {
+		line-height: 1.5em;
+	}
 </style>
 
 <fieldset id="fieldset-stats-rights">
@@ -119,7 +123,7 @@
 </fieldset>
 
 <fieldset id="fieldset-stats-per-page">
-	<legend><?php echo __('Browse Stats'); ?></legend>
+	<legend><?php echo __('User Status'); ?></legend>
 	<p class="explanation">
 		<?php
 			echo __('These options allow to restrict stats according to status of users.')
@@ -146,6 +150,7 @@
 			?>
 		</div>
 	</div>
+	
 	<div class="field">
 		<div class="two columns alpha">
 			<?php echo $this->formLabel('stats_default_user_status_public', __('User status for public pages')); ?>
@@ -166,6 +171,11 @@
 			?>
 		</div>
 	</div>
+</fieldset>
+
+<fieldset id="fieldset-stats-display">
+	<legend><?php echo __('View Stats'); ?></legend>
+
 	<div class="field">
 		<div class="two columns alpha">
 			<?php echo $this->formLabel('stats_per_page_admin', __('Results Per Page (admin)')); ?>
@@ -182,6 +192,7 @@
 			</div>
 		</div>
 	</div>
+
 	<div class="field">
 		<div class="two columns alpha">
 			<?php echo $this->formLabel('stats_per_page_public', __('Results Per Page (public)')); ?>
@@ -198,18 +209,70 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="field">
+		<div class="two columns alpha">
+			<?php echo $this->formLabel('stats_display_charts', __('Show Charts')); ?>
+		</div>
+		<div class="inputs five columns omega">
+			<?php 
+				echo $this->formCheckbox('stats_display_charts', true, 
+				array('checked' => (bool) get_option('stats_display_charts')));
+				echo '<span>' . __('Displays extra tab with charts for some selected stats (Admin side).') . '</span>';
+			?>
+		</div>
+	</div>
+
+	<div class="field">
+		<div class="two columns alpha">
+			<?php echo $this->formLabel('stats_display_pagination_bottom', __('Display Bottom Pagination')); ?>
+		</div>
+		<div class="inputs five columns omega">
+			<?php 
+				echo $this->formCheckbox('stats_display_pagination_bottom', true, 
+				array('checked' => (bool) get_option('stats_display_pagination_bottom')));
+				echo '<span>' . __('Displays pagination links also under the tables.') . '</span>';
+			?>
+		</div>
+	</div>
+
+	<div class="field">
+		<div class="two columns alpha">
+			<?php echo $this->formLabel('stats_display_quickfilter_bottom', __('Display Bottom Quick Filter')); ?>
+		</div>
+		<div class="inputs five columns omega">
+			<?php 
+				echo $this->formCheckbox('stats_display_quickfilter_bottom', true, 
+				array('checked' => (bool) get_option('stats_display_quickfilter_bottom')));
+				echo '<span>' . __('Displays quick filter also under the tables.') . '</span>';
+			?>
+		</div>
+	</div>
+
+	<div class="field">
+		<div class="two columns alpha">
+			<?php echo $this->formLabel('stats_sortexaequo', __('Sort Ex-Aequo')); ?>
+		</div>
+		<div class="inputs five columns omega">
+			<?php 
+				echo $this->formCheckbox('stats_sortexaequo', true, 
+				array('checked' => (bool) get_option('stats_sortexaequo')));
+				echo '<span>' . __('Adds an additional sorting condition, for ex-aequo cases (warning: can considerably slow down the page loading time).') . '</span>';
+			?>
+		</div>
+	</div>
 </fieldset>
 
-<fieldset id="fieldset-stats-display-by-hooks">
+<fieldset id="fieldset-stats-display-by-hooks" style="margin-top: 2em">
 	<legend><?php echo __('Display by Hooks'); ?></legend>
 	<div class="field">
 		<div class="two columns alpha">
-			<?php echo $this->formLabel('stats_display_by_hooks', __('Pages where hits are shown via hooks')); ?>
+			<?php echo $this->formLabel('stats_display_by_hooks', __('Hooks Showing Hits')); ?>
 		</div>
 		<div class="inputs five columns omega">
 			<p class="explanation">
 				<?php 
-					echo __('Select the pages where the hits are displayed.');
+					echo __('Select the hooks that will display hits in specific pages.');
 					echo ' ' . __('In any case, it is the theme to decide last if hits are displayed or not.'); 
 				?>
 			</p>
@@ -269,21 +332,8 @@
 		<div class="inputs five columns omega">
 			<?php 
 				echo $this->formCheckbox('stats_excludebots', true, 
-				array('checked' => (bool) get_option("stats_excludebots")));
-				echo __('All hits which user agent contains the term "bot", "crawler", "spider", etc. will be excluded.');
-			?>
-		</div>
-	</div>
-
-	<div class="field">
-		<div class="two columns alpha">
-			<?php echo $this->formLabel('stats_enablegraphs', __('Enable Graphs')); ?>
-		</div>
-		<div class="inputs five columns omega">
-			<?php 
-				echo $this->formCheckbox('stats_enablegraphs', true, 
-				array('checked' => (bool) get_option("stats_enablegraphs")));
-				echo __('Adds page with graphs for most common stats.');
+				array('checked' => (bool) get_option('stats_excludebots')));
+				echo '<span>' . __('All hits which user agent contains the term "bot", "crawler", "spider", etc. will be excluded.') . '</span>';
 			?>
 		</div>
 	</div>
