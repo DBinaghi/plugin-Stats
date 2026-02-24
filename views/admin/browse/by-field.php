@@ -45,7 +45,7 @@
 				<?php endforeach; ?>
 			</tbody>
 		</table>
-		<?php echo pagination_links(); ?>
+		<?php if (get_option('stats_display_pagination_bottom')) echo pagination_links(); ?>
 	<?php else: ?>
 		<br class="clear" />
 		<?php if (total_records('Hit') == 0): ?>
@@ -56,7 +56,7 @@
 		<?php endif; ?>
 	<?php endif; ?>
 
-	<?php echo common('quick-filters', array('stats_type' => $stats_type)); ?>
+	<?php if (total_records('Hit') > 0 && get_option('stats_display_quickfilter_bottom')) echo common('quick-filters', array('stats_type' => $stats_type)); ?>
 </div>
 
 <?php echo foot(); ?>
