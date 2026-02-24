@@ -1,21 +1,73 @@
 .stats-hover {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 150px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 150px;
 }
+
 .stats-hover:hover {
-    overflow: visible;
-    position: absolute;
-    white-space: normal;
-    width: 150px;
+	overflow: visible;
+	position: absolute;
+	white-space: normal;
+	width: 150px;
 }
+
 .odd .stats-hover:hover {
-    background-color: #fff;
+	background-color: #fff;
 }
+
 .even .stats-hover:hover {
-    background-color: #f3f3e7;
+	background-color: #f3f3e7;
 }
+
 .stats-hover:hover+div {
-    margin-top: 20px;
+	margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+	section.four.columns {
+		width: calc(33% - 15px) !important;
+	}
+	section.three.columns.alpha,
+	section.three.columns.omega {
+		width: calc(33% - 10px) !important;
+	}
+	section.three.columns.omega {
+		margin-left: 10px !important;
+	}
+}
+
+section.ten.columns {
+	width: 100% !important;
+	margin-left: 0;
+}
+	
+.panel:first-child {
+    margin-top: 10px !important;
+}
+
+.stats-table {
+	font-size: 95%;
+}
+
+.stats-field {
+	overflow-wrap: break-word;
+	word-break: break-all;
+}
+
+.stats-hits,
+.stats-percent {
+	text-align: right;
+	vertical-align: middle;
+}
+
+.stats-date-time {
+	text-align: center;
+	vertical-align: middle;
+}
+
+.chart-canvas {
+	width: 100%; 
+	max-height: 300px; 
+	margin-bottom: 1em
 }
