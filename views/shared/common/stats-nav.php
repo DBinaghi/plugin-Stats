@@ -9,10 +9,10 @@
             'module' => 'stats',
         );
 	}
-    if ((bool)get_option('stats_display_graphs')) {
+    if ((bool)get_option('stats_display_charts')) {
         $navArray[] = array(
-            'label' => __('Graphs'),
-            'action' => 'graphs',
+            'label' => __('Charts'),
+            'action' => 'charts',
             'controller' => 'summary',
             'module' => 'stats',
         );
