@@ -93,14 +93,14 @@ class Stats_SummaryController extends Omeka_Controller_AbstractActionController
     }
 
     /**
-     * Graphs action.
+     * Charts action.
      */
-    public function graphsAction()
+    public function chartsAction()
     {
         $tableHit = $this->_tableHit;
-		$dateNow = new DateTime();
+        $tableStat = $this->_tableStat;
 		
-		// statistics for hits during the last 30 days
+		// statistics for hits, last 30 days
 		for ($i = 29; $i >= 0; $i--) {
 			$date = date('d', strtotime('-' . $i . ' days')) . ' ' . $this->_months(date('n', strtotime('-' . $i . ' days')), true);
 			$time1 = strtotime(date('Y-m-d', strtotime('-' . $i . ' days'))); 
@@ -108,7 +108,7 @@ class Stats_SummaryController extends Omeka_Controller_AbstractActionController
 			$results['last30Days'][$date] = $this->_statsPeriod($time1, $time2);
 		}
 		
-		// statistics for hits during the last 12 months
+		// statistics for hits, last 12 months
 		for ($i = 11; $i > 0; $i--) {
 			$date = $this->_months(date('n', strtotime('-' . $i . ' months')), true) . ' ' . date(' \'y', strtotime('-' . $i . ' months'));
 			$time1 = strtotime(date('Y-m-1', strtotime('-' . $i . ' months'))); 
