@@ -190,7 +190,8 @@
 						$coordinates[$language] = $result['hits'];
 					}
 				}
-				arsort($coordinates);
+				arsort($coordinates); // sorts array by value DESC
+				$coordinates = array_slice($coordinates, 0, 24); // max 24 elements in the chart
 			?>
 					
 			<script>
