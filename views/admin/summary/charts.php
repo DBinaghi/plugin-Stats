@@ -190,6 +190,7 @@
 						$coordinates[$language] = $result['hits'];
 					}
 				}
+				arsort($coordinates);
 			?>
 					
 			<script>
