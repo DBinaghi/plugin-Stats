@@ -6,6 +6,7 @@
  * users of the site.
  *
  * @copyright Copyright Daniel Berthereau, 2014
+ * @copyright Copyright Daniele Binaghi, 2026
  * @license http://www.cecill.info/licences/Licence_CeCILL_V2.1-en.txt
  * @package Stats
  */
@@ -84,7 +85,10 @@ class StatsPlugin extends Omeka_Plugin_AbstractPlugin
 		// Privacy settings.
 		'stats_privacy' => 'hashed',
 		// Miscellaneous.
-		'stats_excludebots' => 0
+		'stats_excludebots' => 0,
+		// UA Parser settings.
+		'stats_ua_parser_url' => '', // empty = use bundled library
+		'stats_ua_parse_on_hit' => 1, // parse UA client-side on every new hit
 	);
 
 	/**
@@ -98,6 +102,10 @@ class StatsPlugin extends Omeka_Plugin_AbstractPlugin
 			add_shortcode('stats_position', array($this, 'shortcodeStatsPosition'));
 			add_shortcode('stats_vieweds', array($this, 'shortcodeStatsVieweds'));
 		}
+		// Safety net: create/update UA structures if missing (e.g. after a manual
+		// upgrade without uninstall/reinstall). These calls are idempotent.
+		$this->_ensureUaTable();
+		$this->_ensureUaParsedColumn();
 	}
 
 	/**
@@ -105,7 +113,7 @@ class StatsPlugin extends Omeka_Plugin_AbstractPlugin
 	 */
 	public function hookInstall()
 	{
-		// This two tables are not linked in order to keep the schema KISS.
+		// These tables are not linked in order to keep the schema KISS.
 		// Many indexes are needed to get stats quickly.
 		$db = $this->_db;
 
@@ -146,6 +154,7 @@ class StatsPlugin extends Omeka_Plugin_AbstractPlugin
 			`query` varchar(1024) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
 			`user_agent` varchar(1024) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
 			`accept_language` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+			`ua_parsed` tinyint(1) unsigned NOT NULL DEFAULT 0,
 			`added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 			PRIMARY KEY (`id`),
 			INDEX `url` (`url`),
@@ -161,6 +170,9 @@ class StatsPlugin extends Omeka_Plugin_AbstractPlugin
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 		";
 		$db->query($sql);
+
+		// Cache table for parsed user-agent data.
+		$this->_ensureUaTable();
 
 		$this->_installOptions();
 	}
@@ -181,6 +193,55 @@ class StatsPlugin extends Omeka_Plugin_AbstractPlugin
 			";
 			$db->query($sql);
 		}
+
+		// Add user-agent cache table for upgrades from versions before 2.3.
+		if (version_compare($oldVersion, '2.3', '<')) {
+			$this->_ensureUaTable();
+			set_option('stats_ua_parser_url', '');
+			set_option('stats_ua_parse_on_hit', 1);
+		}
+
+		// Add ua_parsed column to hit table for upgrades from versions before 2.4.
+		if (version_compare($oldVersion, '2.4', '<')) {
+			$this->_ensureUaParsedColumn();
+		}
+	}
+
+	/**
+	 * Create the UA cache table if it does not exist yet.
+	 *
+	 * Called from hookInstall() and hookUpgrade(). Using CREATE TABLE IF NOT
+	 * EXISTS makes this idempotent and safe to call multiple times.
+	 */
+	protected function _ensureUaTable()
+	{
+		$db	  = $this->_db;
+		$uaTable = $db->prefix . 'stats_user_agents';
+		$sql = "
+		CREATE TABLE IF NOT EXISTS `$uaTable` (
+			`id`			int(10) unsigned NOT NULL AUTO_INCREMENT,
+			`ua_hash`		char(32) COLLATE utf8_unicode_ci NOT NULL,
+			`user_agent`	varchar(1024) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+			`browser`		varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+			`browser_version` varchar(50)  COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+			`engine`		varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+			`engine_version` varchar(50)  COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+			`os`			varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+			`os_version`	varchar(50)  COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+			`device_type`	varchar(50)  COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+			`device_vendor` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+			`device_model`	varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+			`is_bot`		tinyint(1) unsigned NOT NULL DEFAULT 0,
+			`parsed_at`		timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+			PRIMARY KEY (`id`),
+			UNIQUE KEY `ua_hash` (`ua_hash`),
+			INDEX `browser`	(`browser`),
+			INDEX `os`		(`os`),
+			INDEX `device_type` (`device_type`),
+			INDEX `is_bot`	(`is_bot`)
+		) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+		";
+		$db->query($sql);
 	}
 
 	/**
@@ -193,6 +254,8 @@ class StatsPlugin extends Omeka_Plugin_AbstractPlugin
 		$db->query($sql);
 		$sql = "DROP TABLE IF EXISTS `$db->Hit`";
 		$db->query($sql);
+		$sql = "DROP TABLE IF EXISTS `" . $db->prefix . 'stats_user_agents' . "`";
+		$db->query($sql);
 
 		$this->_uninstallOptions();
 	}
@@ -200,6 +263,40 @@ class StatsPlugin extends Omeka_Plugin_AbstractPlugin
 	/**
 	 * Shows plugin configuration page.
 	 */
+	/**
+	 * Add the ua_parsed column to the hit table if it does not exist yet.
+	 * Idempotent: safe to call multiple times.
+	 */
+	protected function _ensureUaParsedColumn()
+	{
+		$db = $this->_db;
+		$hitTable = $db->Hit;
+
+		// Check if column already exists.
+		$cols = $db->fetchCol("SHOW COLUMNS FROM `{$hitTable}` LIKE 'ua_parsed'");
+		if (!empty($cols)) {
+			return;
+		}
+
+		$db->query("
+			ALTER TABLE `{$hitTable}`
+			ADD COLUMN `ua_parsed` tinyint(1) unsigned NOT NULL DEFAULT 0,
+			ADD INDEX `ua_parsed` (`ua_parsed`)
+		");
+
+		// Marca come già analizzati gli hit il cui UA è già in cache,
+		// in modo che non vengano reinseriti nel batch.
+		$uaTable = $db->prefix . 'stats_user_agents';
+		$db->query("
+			UPDATE `{$hitTable}` h
+			INNER JOIN `{$uaTable}` uar
+				ON uar.`ua_hash` = MD5(h.`user_agent`)
+			SET h.`ua_parsed` = 1
+			WHERE h.`user_agent` != ''
+		");
+	}
+
+
 	public function hookConfigForm($args)
 	{
 		// Default hooks in Omeka Core.
@@ -216,12 +313,21 @@ class StatsPlugin extends Omeka_Plugin_AbstractPlugin
 			'public_collections_browse_each',
 		);
 
+		// Count how many UA strings still need parsing (for the admin notice).
+		// Wrapped in try/catch in case this is called before install completes.
+		try {
+			$unparsedCount = $this->_db->getTable('StatsUserAgent')->countUnparsed();
+		} catch (Exception $e) {
+			$unparsedCount = 0;
+		}
+
 		$view = get_view();
 		echo $view->partial(
 			'plugins/stats-config-form.php',
 			array(
-				'displayByHooks' => $displayByHooks,
+				'displayByHooks'		 => $displayByHooks,
 				'displayByHooksSelected' => unserialize(get_option('stats_display_by_hooks')) ?: array(),
+				'unparsedUaCount'		=> $unparsedCount,
 		));
 	}
 
@@ -244,9 +350,14 @@ class StatsPlugin extends Omeka_Plugin_AbstractPlugin
 						'stats_roles_browse_collections',
 						'stats_display_by_hooks',
 					))) {
-				   $post[$optionKey] = serialize($post[$optionKey]) ?: serialize(array());
+					$post[$optionKey] = serialize($post[$optionKey]) ?: serialize(array());
 				}
 				set_option($optionKey, $post[$optionKey]);
+			} else {
+				// Unset checkboxes must be explicitly saved as 0.
+				if (isset($optionValue) && is_numeric($optionValue)) {
+					set_option($optionKey, 0);
+				}
 			}
 		}
 	}
@@ -295,6 +406,14 @@ class StatsPlugin extends Omeka_Plugin_AbstractPlugin
 					'privileges' => 'by-collection',
 				),
 			),
+			// ACL resource for the UA-parser AJAX endpoints.
+			'Stats_Uaparser' => array(
+				'parse' => array(
+					'public' => 'stats_public_allow_summary', // same visibility
+					'roles' => 'stats_roles_summary',
+					'privileges' => null,
+				),
+			),
 		);
 
 		foreach ($table as $resource => $rights) {
@@ -306,8 +425,7 @@ class StatsPlugin extends Omeka_Plugin_AbstractPlugin
 				}
 				else {
 					$roles = get_option($right['roles']) ? unserialize(get_option($right['roles'])) : array();
-					// Check that all the roles exist, in case a plugin-added role has
-					// been removed (e.g. GuestUser).
+					// Check that all the roles exist, in case a plugin-added role has been removed (e.g. GuestUser)
 					foreach ($roles as $role) {
 						if ($acl->hasRole($role)) {
 							$acl->allow($role, $resource, $right['privileges']);
@@ -316,28 +434,39 @@ class StatsPlugin extends Omeka_Plugin_AbstractPlugin
 				}
 			}
 		}
+
+		// The /parse endpoint must always be publicly accessible (it is called
+		// by the tracker script on public pages, even by anonymous visitors).
+		$acl->allow(null, 'Stats_Uaparser', null);
 	}
 
 	/**
-	 * Defines route for direct download count.
+	 * Defines route for direct download count and UA parser endpoints.
 	 */
 	public function hookDefineRoutes($args)
 	{
-		// ".htaccess" always redirects direct downloads to a public url.
-		if (is_admin_theme()) {
-			return;
-		}
+		$router = $args['router'];
 
-		$args['router']->addConfig(new Zend_Config_Ini(dirname(__FILE__) . '/routes.ini', 'routes'));
+		$router->addConfig(new Zend_Config_Ini(
+			dirname(__FILE__) . '/routes.ini', 'routes'
+		));
 	}
 
 	/**
-	 * Called on each public page.
+	 * Called on each public page: log the hit and inject the UA parser script.
 	 */
 	public function hookPublicHead($args)
 	{
 		$this->_logCurrentPage();
+
+		if (get_option('stats_ua_parse_on_hit')) {
+			$this->_injectUaParserScript();
+		}
 	}
+
+	// =========================================================================
+	// Admin sidebar / browse hooks (unchanged from original)
+	// =========================================================================
 
 	public function hookAdminItemsShowSidebar($args)
 	{
@@ -479,22 +608,13 @@ class StatsPlugin extends Omeka_Plugin_AbstractPlugin
 		return $nav;
 	}
 
-	/**
-	 * Adds browse in admin navigation.
-	 */
 	public function filterAdminNavigationGlobal($nav)
 	{
-		// $nav[] = array(
-			// 'label' => __('Stats'),
-			// 'uri' => url('stats/summary'),
-			// 'resource' => 'Stats_Summary',
-		// );
-
 		return $nav;
 	}
 
-    public function filterAdminNavigationMain($nav)
-    {
+	public function filterAdminNavigationMain($nav)
+	{
 		if (is_allowed('Stats_Summary', null)) {
 			$nav[] = array(
 				'label' => __('Stats'),
@@ -502,9 +622,9 @@ class StatsPlugin extends Omeka_Plugin_AbstractPlugin
 				'resource' => 'Stats_Summary'
 			);
 		}
-        return $nav;
-    }
-	
+		return $nav;
+	}
+
 	/**
 	 * Append section to admin dashboard
 	 *
@@ -566,7 +686,6 @@ class StatsPlugin extends Omeka_Plugin_AbstractPlugin
 					foreach ($stats as $stat) {
 						$html .= '<li>';
 						$html .= __('%s (%d views)',
-								 // $stat->getPositionPage(),
 								 '<a href="' . WEB_ROOT . $stat->url . '">' . $stat->url . '</a>',
 								 $stat->$userStatus);
 						 $html .= '</li>';
@@ -706,6 +825,7 @@ class StatsPlugin extends Omeka_Plugin_AbstractPlugin
 	 * Shortcode to display total hits of one or multiple pages or records.
 	 *
 	 * If record(s) is set, don't look for url(s).
+
 	 *
 	 * @param array $args
 	 * @param Omeka_View $view
@@ -714,7 +834,6 @@ class StatsPlugin extends Omeka_Plugin_AbstractPlugin
 	public function shortcodeStatsTotal($args, $view)
 	{
 		$html = '';
-
 		$result = null;
 		$type = isset($args['type']) ? $args['type'] : null;
 		$recordType = isset($args['record_type']) ? $args['record_type'] : null;
@@ -761,7 +880,6 @@ class StatsPlugin extends Omeka_Plugin_AbstractPlugin
 	public function shortcodeStatsPosition($args, $view)
 	{
 		$html = '';
-
 		$result = null;
 		$type = isset($args['type']) ? $args['type'] : null;
 		// Different from StatsTotal, because position of multiple record_type
@@ -807,7 +925,6 @@ class StatsPlugin extends Omeka_Plugin_AbstractPlugin
 	public function shortcodeStatsVieweds($args, $view)
 	{
 		$html = '';
-
 		$result = null;
 		$type = isset($args['type']) ? $args['type'] : null;
 		$sort = $this->_getArgumentSort($args);
@@ -828,27 +945,82 @@ class StatsPlugin extends Omeka_Plugin_AbstractPlugin
 
 	/**
 	 * Log the hit on the current page.
+	 * Known fake UA fragments used by bot scanners that spoof mobile devices.
+	 * These exact build strings do not appear in any real modern browser.
 	 */
+	private static $_botUaPatterns = array(
+		'Nexus 5 Build/MRA58N',
+		'Pixel 2 Build/OPD3.170816.012',
+		'SM-G900P Build/LRX21T',
+		'iPhone; CPU iPhone OS 11_0',
+	);
+
 	protected function _logCurrentPage()
 	{
 		$hit = new Hit;
 		$hit->setCurrentHit();
 
-		// The hit is saved only if stats_excludebots setting is set and the
-		// request is from a bot.
+		// Discard known bot UA patterns before any further processing.
+		$ua = (string) $hit->user_agent;
+		foreach (self::$_botUaPatterns as $pattern) {
+			if (strpos($ua, $pattern) !== false) {
+				return;
+			}
+		}
+
 		if ( (!get_option("stats_excludebots")) || (!$hit->isBot()) ) {
+			// If the UA is already cached, mark the hit as parsed immediately.
+			$uaTable = $this->_db->prefix . 'stats_user_agents';
+			if ($ua !== '') {
+				$cached = $this->_db->fetchOne(
+					"SELECT id FROM `{$uaTable}` WHERE ua_hash = MD5(?)",
+					array($ua)
+				);
+				if ($cached) {
+					$hit->ua_parsed = 1;
+				}
+			}
 			$hit->save();
 		}
 	}
 
 	/**
+	 * Inject the UA-parser config block and tracker script into <head>.
+	 *
+	 * The actual ua-parser-js library is loaded asynchronously by the tracker;
+	 * this method only outputs a tiny <script> config block and one <script src>.
+	 */
+	protected function _injectUaParserScript()
+	{
+		$pluginDir = WEB_PLUGIN . '/' . basename(dirname(__FILE__));
+
+		// URL of ua-parser-js: use the value from config, falling back to the
+		// bundled copy shipped with the plugin.
+		$configuredUrl = trim((string) get_option('stats_ua_parser_url'));
+		$bundleUrl = $pluginDir . '/views/shared/javascripts/ua-parser.min.js';
+		$scriptUrl = ($configuredUrl !== '') ? $configuredUrl : $bundleUrl;
+
+		$parseUrl = url('stats/ua-parser/parse');
+		$trackerUrl = $pluginDir . '/libraries/ua-parser/stats-ua-tracker.js';
+
+		$config = json_encode(array(
+			'parseUrl'  => $parseUrl,
+			'scriptUrl' => $scriptUrl,
+			'bundleUrl' => $bundleUrl,
+		));
+
+		echo '<script>window.StatsUAConfig = ' . $config . ';</script>' . "\n";
+		echo '<script src="' . htmlspecialchars($trackerUrl) . '" defer></script>' . "\n";
+	}
+
+ 	/**
 	 * Helper to determine if the stats is set to be displayed by hook in the
 	 * specified page.
 	 *
 	 * @param string $hookPage Hook for the page.
-	 *
+ 	 *
 	 * @return boolean
-	 */
+ 	 */
 	protected function _checkDisplayStatsByHook($hookPage)
 	{
 		$statsDisplayByHooks = unserialize(get_option('stats_display_by_hooks'));
