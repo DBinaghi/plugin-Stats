@@ -800,3 +800,99 @@ msgstr ""
 #, php-format
 msgid "Position: %s (%s views)"
 msgstr ""
+
+#: views/admin/plugin/stats-config-form.php
+msgid "User Agent Parser"
+msgstr ""
+
+#: views/admin/plugin/stats-config-form.php
+#, php-format
+msgid "The plugin can parse raw user-agent strings into structured data (browser, OS, device type) using the %sua-parser-js%s library."
+msgstr ""
+
+#: views/admin/plugin/stats-config-form.php
+msgid "Parsing is done client-side by the visitor's browser and the result is cached server-side, so each unique user-agent string is parsed only once."
+msgstr ""
+
+#: views/admin/plugin/stats-config-form.php
+msgid "Parse on visit"
+msgstr ""
+
+#: views/admin/plugin/stats-config-form.php
+msgid "Automatically parse the visitor's user-agent on each page view and cache the result."
+msgstr ""
+
+#: views/admin/plugin/stats-config-form.php
+msgid "ua-parser-js URL"
+msgstr ""
+
+#: views/admin/plugin/stats-config-form.php
+msgid "URL of the ua-parser-js script to load on public pages."
+msgstr ""
+
+#: views/admin/plugin/stats-config-form.php
+msgid "Leave empty to use the bundled version shipped with the plugin (recommended for offline / intranet installations)."
+msgstr ""
+
+#: views/admin/plugin/stats-config-form.php
+#, php-format
+msgid "Example CDN URL: %s"
+msgstr ""
+
+#: views/admin/plugin/stats-config-form.php
+msgid "Parse existing hits"
+msgstr ""
+
+#: views/admin/plugin/stats-config-form.php
+msgid "All user-agent strings in the hit log have already been parsed."
+msgstr ""
+
+#: views/admin/plugin/stats-config-form.php
+#, php-format
+msgid "There are %s<strong>%d</strong>%s distinct user-agent string(s) in the hit log that have not yet been parsed."
+msgstr ""
+
+#: views/admin/plugin/stats-config-form.php
+#, php-format
+msgid "Parse now (%d UA strings)"
+msgstr ""
+
+#: views/admin/plugin/stats-config-form.php
+msgid "Loading user-agent list\xe2\x80\xa6"
+msgstr ""
+
+#: views/admin/plugin/stats-config-form.php
+msgid "Nothing to parse."
+msgstr ""
+
+#: views/admin/plugin/stats-config-form.php
+msgid "Error loading list: "
+msgstr ""
+
+#: views/admin/plugin/stats-config-form.php
+msgid "Error: "
+msgstr ""
+
+#: views/admin/plugin/stats-config-form.php
+msgid "Done!"
+msgstr ""
+
+#: views/admin/plugin/stats-config-form.php
+msgid "All parsed"
+msgstr ""
+
+#: views/admin/plugin/stats-config-form.php
+msgid "Could not load ua-parser-js. Check the URL in the settings above."
+msgstr ""
+
+#: views/shared/common/most-frequents.php
+msgid "Unknown"
+msgstr ""
+
+#: views/shared/common/most-frequents.php
+#, php-format
+msgid "%d views"
+msgstr ""
+
+msgid "Loading..."
+msgstr ""

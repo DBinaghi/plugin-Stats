@@ -1,6 +1,5 @@
-# Translation for the Stats plugin for Omeka.
+# Translation for the Stats plugin for Omeka - Esperanto.
 # This file is distributed under the same license as the Stats package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
@@ -8,10 +7,10 @@ msgstr ""
 "Project-Id-Version: Stats\n"
 "Report-Msgid-Bugs-To: http://github.com/Daniel-KM/Stats/issues\n"
 "POT-Creation-Date: 2026-02-24 01:00+0100\n"
-"PO-Revision-Date: 2026-02-24 01:20+0100\n"
+"PO-Revision-Date: 2026-03-06 00:00+0100\n"
 "Last-Translator: Daniele Binaghi\n"
 "Language-Team: \n"
-"Language: it\n"
+"Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,48 +21,48 @@ msgstr ""
 #: views/admin/browse/by-collection.php:2 views/admin/summary/graphs.php:2
 #: views/admin/summary/index.php:2 views/public/summary/index.php:2
 msgid "Stats"
-msgstr "Statistiche"
+msgstr "Statistikoj"
 
 #: StatsPlugin.php:381 StatsPlugin.php:403
 #, php-format
 msgid "Views: %d (position %d)"
-msgstr "Visualizzazione: %d (posizione %d)"
+msgstr "Vidoj: %d (pozicio %d)"
 
 #: StatsPlugin.php:417
 #, php-format
 msgid "Views: %d (%d anonymous / %d identified users)"
-msgstr "Visualizzazioni: %d (%d anonime / %d utenti identificati)"
+msgstr "Vidoj: %d (%d anonimaj / %d identigitaj uzantoj)"
 
 #: StatsPlugin.php:423
 #, php-format
 msgid "Position: %d (%d anonymous / %d identified users)"
-msgstr "Posizione: %d (%d anonimi / %d utenti idenficati)"
+msgstr "Pozicio: %d (%d anonimaj / %d identigitaj uzantoj)"
 
 #: StatsPlugin.php:517
 msgid "hits"
-msgstr "visite"
+msgstr "vizitoj"
 
 #: StatsPlugin.php:538 views/public/summary/index.php:17
 #, php-format
 msgid "Total Hits: %d"
-msgstr "Totale visite: %d"
+msgstr "Totalaj vizitoj: %d"
 
 #: StatsPlugin.php:542
 msgid "Last 30 days"
-msgstr "Ultimi 30 giorni"
+msgstr "Lastaj 30 tagoj"
 
 #: StatsPlugin.php:543
 msgid "Last 7 days"
-msgstr "Ultimi 7 giorni"
+msgstr "Lastaj 7 tagoj"
 
 #: StatsPlugin.php:544 controllers/SummaryController.php:66
 msgid "Last 24 hours"
-msgstr "Ultime 24 ore"
+msgstr "Lastaj 24 horoj"
 
 #: StatsPlugin.php:560 views/admin/summary/index.php:75
 #: views/public/summary/index.php:66
 msgid "Most viewed public pages"
-msgstr "Pagine pubbliche più visualizzate"
+msgstr "Plej viditaj publikaj paĝoj"
 
 #: StatsPlugin.php:562 StatsPlugin.php:582 StatsPlugin.php:596
 #: StatsPlugin.php:612 views/admin/summary/index.php:77
@@ -72,61 +71,61 @@ msgstr "Pagine pubbliche più visualizzate"
 #: views/public/summary/index.php:89 views/public/summary/index.php:110
 #: views/shared/common/most-frequents.php:2
 msgid "None"
-msgstr "Nessuno"
+msgstr "Neniu"
 
 #: StatsPlugin.php:568 StatsPlugin.php:587 StatsPlugin.php:601
 #: views/public/summary/index.php:73 views/public/summary/index.php:94
 #: views/shared/common/most-frequents.php:7
 #, php-format
 msgid "%s (%d views)"
-msgstr "%s (%d visualizzazioni)"
+msgstr "%s (%d vidoj)"
 
 #: StatsPlugin.php:580
 msgid "Most viewed public item"
-msgstr "Documento pubblico più visualizzato"
+msgstr "Plej vidita publika dokumento"
 
 #: StatsPlugin.php:588 StatsPlugin.php:602 StatsPlugin.php:618
 #: views/helpers/Stats.php:350
 msgid "Deleted"
-msgstr "Cancellato"
+msgstr "Forigita"
 
 #: StatsPlugin.php:594
 msgid "Most viewed public collection"
-msgstr "Collezione pubblica più visualizzata"
+msgstr "Plej vidita publika kolekto"
 
 #: StatsPlugin.php:610
 msgid "Most downloaded file"
-msgstr "File più scaricato"
+msgstr "Plej elŝutita dosiero"
 
 #: StatsPlugin.php:617 views/public/summary/index.php:115
 #, php-format
 msgid "%s (%d downloads)"
-msgstr "%s (%d download)"
+msgstr "%s (%d elŝutoj)"
 
 #: StatsPlugin.php:625
 msgid "Most frequent fields"
-msgstr "Campi più frequenti"
+msgstr "Plej oftaj kampoj"
 
 #: StatsPlugin.php:628
 msgid "Referrer"
-msgstr "Referrer"
+msgstr "Referencisto"
 
 #: StatsPlugin.php:629
 msgid "Query"
-msgstr "Query"
+msgstr "Serĉo"
 
 #: StatsPlugin.php:630
 msgid "User Agent"
-msgstr "User Agent"
+msgstr "Uzant-agento"
 
 #: StatsPlugin.php:631
 msgid "Accepted Language"
-msgstr "Lingua accettata"
+msgstr "Akceptita lingvo"
 
 #: StatsPlugin.php:636
 #, php-format
 msgid "%s: None"
-msgstr "%s: Nessuno"
+msgstr "%s: Neniu"
 
 #: StatsPlugin.php:640
 #, php-format
@@ -135,199 +134,199 @@ msgstr "%s: %s (%d%%)"
 
 #: controllers/BrowseController.php:143
 msgid "External Referrers"
-msgstr "Referrer esterni"
+msgstr "Eksteraj referencistoj"
 
 #: controllers/BrowseController.php:144
 #: views/shared/common/quick-filters.php:34
 msgid "Queries"
-msgstr "Query"
+msgstr "Serĉoj"
 
 #: controllers/BrowseController.php:145
 #: views/shared/common/quick-filters.php:36
 msgid "Browsers"
-msgstr "Navigatori"
+msgstr "Retumiloj"
 
 #: controllers/BrowseController.php:146
 msgid "Accepted Languages"
-msgstr "Lingue accettate"
+msgstr "Akceptitaj lingvoj"
 
 #: controllers/DownloadController.php:41
 msgid "This file doesn't exist."
-msgstr "Questo file non esiste."
+msgstr "Ĉi tiu dosiero ne ekzistas."
 
 #: controllers/SummaryController.php:42
 msgid "Last year"
-msgstr "Ultimo anno"
+msgstr "Lasta jaro"
 
 #: controllers/SummaryController.php:45
 msgid "Last month"
-msgstr "Ultimo mese"
+msgstr "Lasta monato"
 
 #: controllers/SummaryController.php:48
 msgid "Last week"
-msgstr "Ultima settimana"
+msgstr "Lasta semajno"
 
 #: controllers/SummaryController.php:51
 msgid "Yesterday"
-msgstr "Ieri"
+msgstr "Hieraŭ"
 
 #: controllers/SummaryController.php:55
 msgid "This year"
-msgstr "Quest'anno"
+msgstr "Ĉi-jare"
 
 #: controllers/SummaryController.php:57
 msgid "This month"
-msgstr "Questo mese"
+msgstr "Ĉi-monate"
 
 #: controllers/SummaryController.php:59
 msgid "This week"
-msgstr "Questa settimana"
+msgstr "Ĉi-semajne"
 
 #: controllers/SummaryController.php:61
 msgid "This day"
-msgstr "Oggi"
+msgstr "Hodiaŭ"
 
 #: controllers/SummaryController.php:66
 #, php-format
 msgid "Last %s days"
-msgstr "Ultimi %s giorni"
+msgstr "Lastaj %s tagoj"
 
 #: controllers/SummaryController.php:181
 #: views/admin/browse/by-collection.php:29
 msgid "January"
-msgstr "Gennaio"
+msgstr "Januaro"
 
 #: controllers/SummaryController.php:182
 #: views/admin/browse/by-collection.php:30
 msgid "February"
-msgstr "Febbraio"
+msgstr "Februaro"
 
 #: controllers/SummaryController.php:183
 #: views/admin/browse/by-collection.php:31
 msgid "March"
-msgstr "Marzo"
+msgstr "Marto"
 
 #: controllers/SummaryController.php:184
 #: views/admin/browse/by-collection.php:32
 msgid "April"
-msgstr "Aprile"
+msgstr "Aprilo"
 
 #: controllers/SummaryController.php:185
 #: views/admin/browse/by-collection.php:33
 msgid "May"
-msgstr "Maggio"
+msgstr "Majo"
 
 #: controllers/SummaryController.php:186
 #: views/admin/browse/by-collection.php:34
 msgid "June"
-msgstr "Giugno"
+msgstr "Junio"
 
 #: controllers/SummaryController.php:187
 #: views/admin/browse/by-collection.php:35
 msgid "July"
-msgstr "Luglio"
+msgstr "Julio"
 
 #: controllers/SummaryController.php:188
 #: views/admin/browse/by-collection.php:36
 msgid "August"
-msgstr "Agosto"
+msgstr "Aŭgusto"
 
 #: controllers/SummaryController.php:189
 #: views/admin/browse/by-collection.php:37
 msgid "September"
-msgstr "Settembre"
+msgstr "Septembro"
 
 #: controllers/SummaryController.php:190
 #: views/admin/browse/by-collection.php:38
 msgid "October"
-msgstr "Ottobre"
+msgstr "Oktobro"
 
 #: controllers/SummaryController.php:191
 #: views/admin/browse/by-collection.php:39
 msgid "November"
-msgstr "Novembre"
+msgstr "Novembro"
 
 #: controllers/SummaryController.php:192
 #: views/admin/browse/by-collection.php:40
 msgid "December"
-msgstr "Dicembre"
+msgstr "Decembro"
 
 #: models/Hit.php:576
 msgid "Url is required."
-msgstr "URL richiesto."
+msgstr "URL estas necesa."
 
 #: models/Stat.php:368
 msgid "Type should be \"page\" or \"record\"."
-msgstr "Il tipo dovrebbe essere \"pagina\" o \"record\"."
+msgstr "La tipo devas esti \"paĝo\" aŭ \"registro\"."
 
 #: views/admin/browse/by-collection.php:17
 #: views/shared/common/quick-filters.php:17
 #: views/shared/common/stats-nav.php:54
 msgid "By Collection"
-msgstr "Per Collezione"
+msgstr "Laŭ kolekto"
 
 #: views/admin/browse/by-collection.php:22
 msgid "All years"
-msgstr "Tutti gli anni"
+msgstr "Ĉiuj jaroj"
 
 #: views/admin/browse/by-collection.php:43
 msgid "All months"
-msgstr "Tutti i mesi"
+msgstr "Ĉiuj monatoj"
 
 #: views/admin/browse/by-collection.php:48
 msgid "Filter"
-msgstr "Filtro"
+msgstr "Filtri"
 
 #: views/admin/browse/by-collection.php:56
 msgid "Collection"
-msgstr "Collezione"
+msgstr "Kolekto"
 
 #: views/admin/browse/by-collection.php:57 views/admin/browse/by-field.php:31
 #: views/admin/browse/by-stat.php:28 views/public/browse/by-field.php:28
 #: views/public/browse/by-stat.php:30
 msgid "Hits"
-msgstr "Visite"
+msgstr "Vizitoj"
 
 #: views/admin/browse/by-collection.php:59
 msgid "Hits (including sub-collections)"
-msgstr "Visite (includendo sotto-collezioni)"
+msgstr "Vizitoj (inkluzive de sub-kolektoj)"
 
 #: views/admin/browse/by-collection.php:80 views/admin/browse/by-field.php:52
 #: views/public/browse/by-field.php:49
 msgid "There is no hit yet."
-msgstr "Non c'è ancora alcuna visita."
+msgstr "Ankoraŭ ne estas vizitoj."
 
 #: views/admin/browse/by-collection.php:82 views/admin/browse/by-field.php:54
 #: views/public/browse/by-field.php:51
 #, php-format
 msgid "The query searched %s hits and returned no results."
-msgstr "La query ha esaminato %s visite e non ha restituito alcun risultato."
+msgstr "La serĉo trarigardis %s vizitojn kaj ne trovis rezultojn."
 
 #: views/admin/browse/by-collection.php:84 views/admin/browse/by-field.php:55
 #: views/admin/browse/by-stat.php:82 views/public/browse/by-field.php:52
 #: views/public/browse/by-stat.php:74
 msgid "See all stats."
-msgstr "Mostra tutte le statistiche."
+msgstr "Vidi ĉiujn statistikojn."
 
 #: views/admin/browse/by-field.php:2 views/admin/browse/by-stat.php:2
 #: views/public/browse/by-field.php:2 views/public/browse/by-stat.php:2
 #, php-format
 msgid "Stats (%s total)"
-msgstr "Statistiche (%s totale)"
+msgstr "Statistikoj (%s entute)"
 
 #: views/admin/browse/by-field.php:17
 #, php-format
 msgid "By %s (%s)"
-msgstr "Per %s (%s)"
+msgstr "Laŭ %s (%s)"
 
 #: views/admin/browse/by-field.php:18 views/public/browse/by-field.php:17
 #, php-format
 msgid "[%d filled values / %d total hits]"
-msgstr "[%d valori pieni / %d visite totali]"
+msgstr "[%d plenaj valoroj / %d totalaj vizitoj]"
 
 #: views/admin/browse/by-stat.php:27 views/public/browse/by-stat.php:29
 msgid "Page"
-msgstr "Pagina"
+msgstr "Paĝo"
 
 #: views/admin/browse/by-stat.php:29
 #: views/admin/plugins/stats-config-form.php:143
@@ -336,592 +335,569 @@ msgstr "Pagina"
 #: views/admin/summary/graphs.php:40 views/admin/summary/graphs.php:93
 #: views/admin/summary/graphs.php:146
 msgid "Anonymous"
-msgstr "Anonime"
+msgstr "Anonimaj"
 
 #: views/admin/browse/by-stat.php:30 views/admin/summary/graphs.php:44
 #: views/admin/summary/graphs.php:97 views/admin/summary/graphs.php:150
 msgid "Identified"
-msgstr "Identificate"
+msgstr "Identigitaj"
 
 #: views/admin/browse/by-stat.php:31 views/public/browse/by-stat.php:31
 msgid "Dedicated Record"
-msgstr "Record dedicato"
+msgstr "Dediĉita registro"
 
 #: views/admin/browse/by-stat.php:32 views/public/browse/by-stat.php:32
 msgid "Record Type"
-msgstr "Tipologia record"
+msgstr "Tipo de registro"
 
 #: views/admin/browse/by-stat.php:33 views/public/browse/by-stat.php:33
 msgid "Date"
-msgstr "Data"
+msgstr "Dato"
 
 #: views/admin/browse/by-stat.php:79 views/public/browse/by-stat.php:71
 msgid "There is no stat yet."
-msgstr "Non c'è ancora alcuna statistica."
+msgstr "Ankoraŭ ne estas statistikoj."
 
 #: views/admin/browse/by-stat.php:81 views/public/browse/by-stat.php:73
 #, php-format
 msgid "The query searched %s rows and returned no results."
-msgstr "La query ha esaminato %s righe e non ha restituito alcun risultato."
+msgstr "La serĉo trarigardis %s vicojn kaj ne trovis rezultojn."
 
 #: views/admin/plugins/stats-config-form.php:35
 msgid "Rights and Roles"
-msgstr "Diritti e ruoli"
+msgstr "Rajtoj kaj roloj"
 
 #: views/admin/plugins/stats-config-form.php:38
 msgid "Select access rights for each stats page and each role."
-msgstr ""
-"Seleziona i diritti di accesso per ogni pagina delle statistiche e per ogni "
-"ruolo."
+msgstr "Elektu alirrajtojn por ĉiu statistika paĝo kaj ĉiu rolo."
 
 #: views/admin/plugins/stats-config-form.php:39
 msgid ""
 "If \"public\" is checked, all people will have access to the selected data."
 msgstr ""
-"Se \"pubblico\" è selezionata, tutti avranno accesso ai dati selezionati."
+"Se \"publika\" estas markita, ĉiuj personoj havos aliron al la elektitaj datumoj."
 
 #: views/admin/plugins/stats-config-form.php:40
 msgid ""
 "To get stats about direct download of original files, a line should be added "
 "in \".htaccess\"."
 msgstr ""
-"Per ottenere statistiche sui download diretti di file originali, una linea "
-"dovrebbe essere aggiunta nel \".htaccess\"."
+"Por ricevi statistikojn pri rekta elŝuto de originaj dosieroj, linio devas "
+"esti aldonita en \".htaccess\"."
 
 #: views/admin/plugins/stats-config-form.php:41
 #, php-format
 msgid "%sWarning%s: Shortcodes, helpers and hooks don't follow any rule."
-msgstr "%sAttenzione%s: shortcode, helper e hook non seguono alcuna regola."
+msgstr "%sAtento%s: mallongkodoj, helpiloj kaj kroĉiloj ne sekvas ajnan regulon."
 
 #: views/admin/plugins/stats-config-form.php:50
 msgid "View Summary"
-msgstr "Visualizza sommario"
+msgstr "Vidi resumon"
 
 #: views/admin/plugins/stats-config-form.php:55
 msgid "Browse by Page"
-msgstr "Sfoglia per Pagina"
+msgstr "Foliumi laŭ paĝo"
 
 #: views/admin/plugins/stats-config-form.php:60
 msgid "Browse by Record"
-msgstr "Sfoglia per Record"
+msgstr "Foliumi laŭ registro"
 
 #: views/admin/plugins/stats-config-form.php:65
 msgid "Browse by Download"
-msgstr "Sfoglia per Download"
+msgstr "Foliumi laŭ elŝuto"
 
 #: views/admin/plugins/stats-config-form.php:70
 msgid "Browse by Field"
-msgstr "Sfoglia per Campo"
+msgstr "Foliumi laŭ kampo"
 
 #: views/admin/plugins/stats-config-form.php:75
 msgid "Browse by Collection"
-msgstr "Sfoglia per Collezione"
+msgstr "Foliumi laŭ kolekto"
 
 #: views/admin/plugins/stats-config-form.php:87
 msgid "Public"
-msgstr "Pubblica"
+msgstr "Publika"
 
 #: views/admin/plugins/stats-config-form.php:122
 msgid "User Status"
-msgstr "Stato utente"
+msgstr "Stato de uzanto"
 
 #: views/admin/plugins/stats-config-form.php:125
 msgid "These options allow to restrict stats according to status of users."
-msgstr ""
-"Queste opzioni permettono di restringere le statistiche in base allo stato "
-"degli utenti."
+msgstr "Ĉi tiuj opcioj permesas limigi statistikojn laŭ la stato de uzantoj."
 
 #: views/admin/plugins/stats-config-form.php:126
 msgid ""
 "They are used with hooks, helpers and shortcodes, not with direct queries."
-msgstr "Sono usate con hook, helper e shortcode, ma non con query dirette."
+msgstr "Ili estas uzataj kun kroĉiloj, helpiloj kaj mallongkodoj, ne kun rektaj serĉoj."
 
 #: views/admin/plugins/stats-config-form.php:131
 msgid "User status for admin pages"
-msgstr "Stato utente per pagine amministrative"
+msgstr "Stato de uzanto por administraj paĝoj"
 
 #: views/admin/plugins/stats-config-form.php:135
 msgid "Choose the default status of users for stats in admin pages."
-msgstr ""
-"Scegli lo stato di default degli utenti per le statistiche nella pagine di "
-"amministrazione."
+msgstr "Elektu la defaŭltan staton de uzantoj por statistikoj en administraj paĝoj."
 
 #: views/admin/plugins/stats-config-form.php:142
 #: views/admin/plugins/stats-config-form.php:163
 msgid "Total hits"
-msgstr "Totale visite"
+msgstr "Totalaj vizitoj"
 
 #: views/admin/plugins/stats-config-form.php:144
 #: views/admin/plugins/stats-config-form.php:165
 msgid "Identified users"
-msgstr "Utenti identificati"
+msgstr "Identigitaj uzantoj"
 
 #: views/admin/plugins/stats-config-form.php:152
 msgid "User status for public pages"
-msgstr "Stato utente per pagine pubbliche"
+msgstr "Stato de uzanto por publikaj paĝoj"
 
 #: views/admin/plugins/stats-config-form.php:156
 msgid "Choose the status of users to restrict stats in public pages."
-msgstr ""
-"Scegli lo stato degli utenti per restringere le statistiche nelle pagine "
-"pubbliche."
+msgstr "Elektu la staton de uzantoj por limigi statistikojn en publikaj paĝoj."
 
 #: views/admin/plugins/stats-config-form.php:173
 msgid "View Stats"
-msgstr "Visualizza statistiche"
+msgstr "Vidi statistikojn"
 
 #: views/admin/plugins/stats-config-form.php:177
 msgid "Results Per Page (admin)"
-msgstr "Risultati per pagina (admin)"
+msgstr "Rezultoj por paĝo (administra)"
 
 #: views/admin/plugins/stats-config-form.php:182
 msgid ""
 "Limit the number of results displayed per page in the administrative "
 "interface."
 msgstr ""
-"Limita il numero di risultati mostrati in ogni pagina nell'interfaccia "
-"amministrativa."
+"Limigu la nombron de rezultoj montrataj por paĝo en la administra interfaco."
 
 #: views/admin/plugins/stats-config-form.php:194
 msgid "Results Per Page (public)"
-msgstr "Risultati per pagina (pubblica)"
+msgstr "Rezultoj por paĝo (publika)"
 
 #: views/admin/plugins/stats-config-form.php:199
 msgid "Limit the number of results displayed per page in the public interface."
-msgstr ""
-"Limita il numero di risultato mostrati per pagina nella interfaccia pubblica."
+msgstr "Limigu la nombron de rezultoj montrataj por paĝo en la publika interfaco."
 
 #: views/admin/plugins/stats-config-form.php:211
 msgid "Show Charts"
-msgstr "Mostra grafici"
+msgstr "Montri grafikojn"
 
 #: views/admin/plugins/stats-config-form.php:217
 msgid "Displays extra tab with charts for some selected stats (Admin side)."
-msgstr ""
-"Mostra una scheda addizionale con grafici per alcune statistiche selezionate "
-"(modalità Admin)."
+msgstr "Montras kroman langeton kun grafikoj por elektitaj statistikoj (administra flanko)."
 
 #: views/admin/plugins/stats-config-form.php:224
 msgid "Display Bottom Pagination"
-msgstr "Mostra paginazione in basso"
+msgstr "Montri suban paĝumeradon"
 
 #: views/admin/plugins/stats-config-form.php:230
 msgid "Displays pagination links also under the tables."
-msgstr "Mostra collegamenti di paginazione anche sotto le tabelle."
+msgstr "Montras paĝumerajn ligilojn ankaŭ sub la tabeloj."
 
 #: views/admin/plugins/stats-config-form.php:237
 msgid "Display Bottom Quick Filter"
-msgstr "Mostra filtro rapido in basso"
+msgstr "Montri suban rapidan filtrilon"
 
 #: views/admin/plugins/stats-config-form.php:243
 msgid "Displays quick filter also under the tables."
-msgstr "Mostra filtro rapido anche sotto le tabelle."
+msgstr "Montras rapidan filtrilon ankaŭ sub la tabeloj."
 
 #: views/admin/plugins/stats-config-form.php:250
 msgid "Sort Ex-Aequo"
-msgstr "Ordina ex-aequo"
+msgstr "Ordigi ex-aequo"
 
 #: views/admin/plugins/stats-config-form.php:256
 msgid ""
 "Adds an additional sorting condition, for ex-aequo cases (warning: can "
 "considerably slow down the page loading time)."
 msgstr ""
-"Aggiunge una condizione di ordinamento addizionale, per i casi di ex-aequo "
-"(attenzione: può rallentare considerevolmente il tempo di caricamento della "
-"pagina)."
+"Aldonas kroman ordigkondiĉon por ex-aequo kazoj (averto: povas konsiderinde "
+"malrapidigi la ŝargtempo de la paĝo)."
 
 #: views/admin/plugins/stats-config-form.php:263
 msgid "Display by Hooks"
-msgstr "Mostra con hook"
+msgstr "Montri per kroĉiloj"
 
 #: views/admin/plugins/stats-config-form.php:266
 msgid "Hooks Showing Hits"
-msgstr "Hook per mostrare visite"
+msgstr "Kroĉiloj por montri vizitojn"
 
 #: views/admin/plugins/stats-config-form.php:271
 msgid "Select the hooks that will display hits in specific pages."
-msgstr "Seleziona gli hook che mostreranno visite in pagine specifiche."
+msgstr "Elektu la kroĉilojn kiuj montros vizitojn en specifaj paĝoj."
 
 #: views/admin/plugins/stats-config-form.php:272
 msgid ""
 "In any case, it is the theme to decide last if hits are displayed or not."
 msgstr ""
-"In ogni caso, è il tema che decide per ultimo se visualizzare o meno le "
-"visite."
+"En ĉiu okazo, estas la temo kiu decidas laste ĉu vizitoj estas montrataj aŭ ne."
 
 #: views/admin/plugins/stats-config-form.php:293
 msgid "Privacy"
-msgstr "Privacy"
+msgstr "Privateco"
 
 #: views/admin/plugins/stats-config-form.php:296
 msgid "Level of Privacy"
-msgstr "Livello di privacy"
+msgstr "Nivelo de privateco"
 
 #: views/admin/plugins/stats-config-form.php:301
 msgid "Choose the level of privacy (default: hashed IP)."
-msgstr "Scegli il livello di privacy (default: IP mascherato)."
+msgstr "Elektu la nivelon de privateco (defaŭlte: haŝita IP)."
 
 #: views/admin/plugins/stats-config-form.php:302
 msgid "A change applies only to new hits."
-msgstr "Qualsiasi modifica si applica solo a nuove visite."
+msgstr "Ĉiu ŝanĝo aplikiĝas nur al novaj vizitoj."
 
 #: views/admin/plugins/stats-config-form.php:311
 msgid "Hashed IP"
-msgstr "IP mascherato"
+msgstr "Haŝita IP"
 
 #: views/admin/plugins/stats-config-form.php:312
 msgid "Partial IP (first hex)"
-msgstr "IP parziale (primo hex)"
+msgstr "Parta IP (unua hex)"
 
 #: views/admin/plugins/stats-config-form.php:313
 msgid "Partial IP (first 2 hexs)"
-msgstr "IP parziale (primi 2 hex)"
+msgstr "Parta IP (unuaj 2 hex)"
 
 #: views/admin/plugins/stats-config-form.php:314
 msgid "Partial IP (first 3 hexs)"
-msgstr "IP parziale (primi 3 hex)"
+msgstr "Parta IP (unuaj 3 hex)"
 
 #: views/admin/plugins/stats-config-form.php:315
 msgid "Clear IP"
-msgstr "IP in chiaro"
+msgstr "Klara IP"
 
 #: views/admin/plugins/stats-config-form.php:323
 msgid "Misc"
-msgstr "Miscellanea"
+msgstr "Diversaĵoj"
 
 #: views/admin/plugins/stats-config-form.php:326
 msgid "Exclude crawlers/bots"
-msgstr "Escludi crawler/bot"
+msgstr "Ekskludas retaranejn/robotojn"
 
 #: views/admin/plugins/stats-config-form.php:332
 msgid ""
 "All hits which user agent contains the term \"bot\", \"crawler\", "
 "\"spider\", etc. will be excluded."
 msgstr ""
-"Tutte le visite il cui user agent contenga i termini \"bot\", \"crawler\", "
-"\"spider\", ecc. verranno escluse."
+"Ĉiuj vizitoj kies uzant-agento enhavas la vorton \"bot\", \"crawler\", "
+"\"spider\", ktp. estos ekskluditaj."
 
 #: views/admin/summary/graphs.php:20
 msgid "Hits in the last 30 days"
-msgstr "Visite negli ultimi 30 giorni"
+msgstr "Vizitoj en la lastaj 30 tagoj"
 
 #: views/admin/summary/graphs.php:73
 msgid "Hits in the last 12 months"
-msgstr "Visite negli ultimi 12 mesi"
+msgstr "Vizitoj en la lastaj 12 monatoj"
 
 #: views/admin/summary/graphs.php:126
 msgid "Hits per year"
-msgstr "Visite per anno"
+msgstr "Vizitoj jare"
 
 #: views/admin/summary/graphs.php:179 views/admin/summary/index.php:177
 #: views/public/summary/index.php:130
 msgid "Most frequent accepted languages"
-msgstr "Linguaggi accettati più frequenti"
+msgstr "Plej oftaj akceptitaj lingvoj"
 
 #: views/admin/summary/index.php:18
 #, php-format
 msgid "Total Hits: %d [%d anonymous / %d identified]"
-msgstr "Visite totali: %d [%d anonime / %d identificate]"
+msgstr "Totalaj vizitoj: %d [%d anonimaj / %d identigitaj]"
 
 #: views/admin/summary/index.php:26
 #, php-format
 msgid "Today: %d [%d / %d]"
-msgstr "Oggi: %d [%d / %d]"
+msgstr "Hodiaŭ: %d [%d / %d]"
 
 #: views/admin/summary/index.php:35 views/public/summary/index.php:26
 msgid "History"
-msgstr "Storico"
+msgstr "Historio"
 
 #: views/admin/summary/index.php:48 views/public/summary/index.php:39
 msgid "Current"
-msgstr "Attuale"
+msgstr "Nuna"
 
 #: views/admin/summary/index.php:61 views/public/summary/index.php:52
 msgid "Rolling Period"
-msgstr "Periodo d'attività"
+msgstr "Glita periodo"
 
 #: views/admin/summary/index.php:83 views/admin/summary/index.php:108
 #: views/admin/summary/index.php:133
 #, php-format
 msgid "%s (%d views [%d / %d])"
-msgstr "%s (%d visualizzazioni [%d / %d])"
+msgstr "%s (%d vidoj [%d / %d])"
 
 #: views/admin/summary/index.php:100 views/public/summary/index.php:87
 msgid "Most viewed public records"
-msgstr "Record pubblici più visualizzati"
+msgstr "Plej viditaj publikaj registroj"
 
 #: views/admin/summary/index.php:125
 msgid "Most viewed public collections"
-msgstr "Collezioni pubbliche più visualizzate"
+msgstr "Plej viditaj publikaj kolektoj"
 
 #: views/admin/summary/index.php:150 views/public/summary/index.php:108
 msgid "Most downloaded files"
-msgstr "File più scaricati"
+msgstr "Plej elŝutitaj dosieroj"
 
 #: views/admin/summary/index.php:158
 #, php-format
 msgid "%s (%d downloads [%d / %d])"
-msgstr "%s (%d download [%d / %d])"
+msgstr "%s (%d elŝutoj [%d / %d])"
 
 #: views/admin/summary/index.php:175 views/public/summary/index.php:128
 msgid "Most frequent external referrers"
-msgstr "Referrer esterni più frequenti"
+msgstr "Plej oftaj eksteraj referencistoj"
 
 #: views/admin/summary/index.php:176 views/public/summary/index.php:129
 msgid "Most frequent queries"
-msgstr "Query più frequenti"
+msgstr "Plej oftaj serĉoj"
 
 #: views/admin/summary/index.php:178 views/public/summary/index.php:131
 msgid "Most frequent browsers"
-msgstr "Navigatori più usati"
+msgstr "Plej uzataj retumiloj"
 
 #: views/helpers/Stats.php:255
 msgid "None."
-msgstr "Nessuno."
+msgstr "Neniu."
 
 #: views/helpers/Stats.php:385
 msgid "Simple Page"
-msgstr "Simple Page"
+msgstr "Simpla paĝo"
 
 #: views/helpers/Stats.php:386
 msgid "Exhibit Page"
-msgstr "Pagina esposizione"
+msgstr "Ekspozicia paĝo"
 
 #: views/helpers/Stats.php:403
 msgid "all users"
-msgstr "tutti gli utenti"
+msgstr "ĉiuj uzantoj"
 
 #: views/helpers/Stats.php:406
 msgid "anonymous users"
-msgstr "utenti anonimi"
+msgstr "anonimaj uzantoj"
 
 #: views/helpers/Stats.php:409
 msgid "identified users"
-msgstr "utenti identificati"
+msgstr "identigitaj uzantoj"
 
 #: views/public/browse/by-field.php:16
 #, php-format
 msgid "By %s"
-msgstr "Per %s"
+msgstr "Laŭ %s"
 
 #: views/public/summary/index.php:21
 #, php-format
 msgid "Today: %d"
-msgstr "Oggi: %d"
+msgstr "Hodiaŭ: %d"
 
 #: views/shared/common/quick-filters.php:2
 #: views/shared/common/quick-filters.php:4
 msgid "Quick Filter"
-msgstr "Filtro rapido"
+msgstr "Rapida filtrilo"
 
 #: views/shared/common/quick-filters.php:9
 #: views/shared/common/quick-filters.php:15
 #: views/shared/common/quick-filters.php:29
 msgid "View All"
-msgstr "Visualizza tutto"
+msgstr "Vidi ĉion"
 
 #: views/shared/common/quick-filters.php:10
 msgid "With record"
-msgstr "Con record"
+msgstr "Kun registro"
 
 #: views/shared/common/quick-filters.php:11
 msgid "Without record"
-msgstr "Senza record"
+msgstr "Sen registro"
 
 #: views/shared/common/quick-filters.php:16
 msgid "By Item"
-msgstr "Per Documento"
+msgstr "Laŭ dokumento"
 
 #: views/shared/common/quick-filters.php:18
 msgid "By File"
-msgstr "Per File"
+msgstr "Laŭ dosiero"
 
 #: views/shared/common/quick-filters.php:20
 msgid "By Simple Page"
-msgstr "Per Simple Page"
+msgstr "Laŭ simpla paĝo"
 
 #: views/shared/common/quick-filters.php:23
 msgid "By Exhibit"
-msgstr "Per Esposizione"
+msgstr "Laŭ ekspozicio"
 
 #: views/shared/common/quick-filters.php:24
 msgid "By Exhibit Page"
-msgstr "Per pagina di Esposizione"
+msgstr "Laŭ ekspozicia paĝo"
 
 #: views/shared/common/quick-filters.php:33
 msgid "Referrers"
-msgstr "Referrer"
+msgstr "Referencistoj"
 
 #: views/shared/common/quick-filters.php:35
 msgid "Languages"
-msgstr "Lingue"
+msgstr "Lingvoj"
 
 #: views/shared/common/stats-nav.php:6
 msgid "Summary"
-msgstr "Riassunto"
+msgstr "Resumo"
 
 #: views/shared/common/stats-nav.php:14
 msgid "Charts"
-msgstr "Grafici"
+msgstr "Grafikoj"
 
 #: views/shared/common/stats-nav.php:22
 msgid "By Page"
-msgstr "Per Pagina"
+msgstr "Laŭ paĝo"
 
 #: views/shared/common/stats-nav.php:30
 msgid "By Record"
-msgstr "Per Record"
+msgstr "Laŭ registro"
 
 #: views/shared/common/stats-nav.php:38
 msgid "By Download"
-msgstr "Per Download"
+msgstr "Laŭ elŝuto"
 
 #: views/shared/common/stats-nav.php:46
 msgid "By Field"
-msgstr "Per Campo"
+msgstr "Laŭ kampo"
 
 #: views/shared/common/stats-single.php:5
 msgid "No download"
-msgstr "Nessun download"
+msgstr "Neniu elŝuto"
 
 #: views/shared/common/stats-single.php:11
 #: views/shared/common/stats-single.php:22
 msgid "No specific record"
-msgstr "Nessun record specifico"
+msgstr "Neniu specifa registro"
 
 #: views/shared/common/stats-single.php:7
 #, php-format
 msgid "%s (%s downloads): %s [%s]"
-msgstr "%s (%s download): %s [%s]"
+msgstr "%s (%s elŝutoj): %s [%s]"
 
 #: views/shared/common/stats-single.php:16
 msgid "No view"
-msgstr "Nessuna visualizzazione"
+msgstr "Neniu vido"
 
 #: views/shared/common/stats-single.php:18
 #, php-format
 msgid "%s (%s views): %s [%s]"
-msgstr "%s (%s visualizzazioni): %s [%s]"
+msgstr "%s (%s vidoj): %s [%s]"
 
 #: views/shared/common/stats-value.php:5
 msgid "Not downloaded"
-msgstr "Non scaricato"
+msgstr "Ne elŝutita"
 
 #: views/shared/common/stats-value.php:7
 #, php-format
 msgid "Position: %s (%s downloads)"
-msgstr "Posizione: %s (%s download)"
+msgstr "Pozicio: %s (%s elŝutoj)"
 
 #: views/shared/common/stats-value.php:14
 msgid "Not viewed"
-msgstr "Non visualizzato"
+msgstr "Ne vidita"
 
 #: views/shared/common/stats-value.php:16
 #, php-format
 msgid "Position: %s (%s views)"
-msgstr "Posizione: %s (%s visualizzazioni)"
-
-#~ msgid "Table of Rights"
-#~ msgstr "Tabella dei diritti"
-
-#~ msgid "Pages where hits are shown via hooks"
-#~ msgstr "Pagine in cui le visite sono mostrate per mezzo di hook"
-
-#~ msgid "Select the pages where the hits are displayed."
-#~ msgstr "Seleziona le pagine dove le visite sono mostrate."
+msgstr "Pozicio: %s (%s vidoj)"
 
 #: views/admin/plugin/stats-config-form.php
 msgid "User Agent Parser"
-msgstr "Parser User Agent"
+msgstr "Analizilo de uzant-agento"
 
 #: views/admin/plugin/stats-config-form.php
 #, php-format
 msgid "The plugin can parse raw user-agent strings into structured data (browser, OS, device type) using the %sua-parser-js%s library."
-msgstr "Il plugin può analizzare le stringhe user-agent grezze in dati strutturati (browser, OS, tipo di dispositivo) tramite la libreria %sua-parser-js%s."
+msgstr "La kromaĵo povas analizi krudajn uzant-agentajn ĉenojn en strukturitajn datumojn (retumilo, OS, tipo de aparato) per la biblioteko %sua-parser-js%s."
 
 #: views/admin/plugin/stats-config-form.php
 msgid "Parsing is done client-side by the visitor's browser and the result is cached server-side, so each unique user-agent string is parsed only once."
-msgstr "L'analisi viene eseguita lato client dal browser del visitatore e il risultato viene memorizzato lato server, in modo che ogni stringa user-agent univoca venga analizzata una sola volta."
+msgstr "La analizo estas farata flanke de kliento de la retumilo de la vizitanto kaj la rezulto estas kaŝmemorigita flanke de servilo, do ĉiu unika uzant-agenta ĉeno estas analizita nur unufoje."
 
 #: views/admin/plugin/stats-config-form.php
 msgid "Parse on visit"
-msgstr "Analizza alla visita"
+msgstr "Analizi ĉe vizito"
 
 #: views/admin/plugin/stats-config-form.php
 msgid "Automatically parse the visitor's user-agent on each page view and cache the result."
-msgstr "Analizza automaticamente lo user-agent del visitatore ad ogni visualizzazione di pagina e memorizza il risultato."
+msgstr "Aŭtomate analizi la uzant-agenton de la vizitanto ĉe ĉiu paĝa vido kaj kaŝmemorigi la rezulton."
 
 #: views/admin/plugin/stats-config-form.php
 msgid "ua-parser-js URL"
-msgstr "URL di ua-parser-js"
+msgstr "URL de ua-parser-js"
 
 #: views/admin/plugin/stats-config-form.php
 msgid "URL of the ua-parser-js script to load on public pages."
-msgstr "URL dello script ua-parser-js da caricare nelle pagine pubbliche."
+msgstr "URL de la skripto ua-parser-js por ŝargi en publikaj paĝoj."
 
 #: views/admin/plugin/stats-config-form.php
 msgid "Leave empty to use the bundled version shipped with the plugin (recommended for offline / intranet installations)."
-msgstr "Lascia vuoto per usare la versione inclusa nel plugin (consigliata per installazioni offline / intranet)."
+msgstr "Lasu malplena por uzi la enbundligitan version liverita kun la kromaĵo (rekomendita por eksterreta / intrareta instalado)."
 
 #: views/admin/plugin/stats-config-form.php
 #, php-format
 msgid "Example CDN URL: %s"
-msgstr "Esempio di URL CDN: %s"
+msgstr "Ekzempla CDN URL: %s"
 
 #: views/admin/plugin/stats-config-form.php
 msgid "Parse existing hits"
-msgstr "Analizza le visite esistenti"
+msgstr "Analizi ekzistantajn vizitojn"
 
 #: views/admin/plugin/stats-config-form.php
 msgid "All user-agent strings in the hit log have already been parsed."
-msgstr "Tutte le stringhe user-agent nel registro delle visite sono già state analizzate."
+msgstr "Ĉiuj uzant-agentaj ĉenoj en la vizita registro jam estis analizitaj."
 
 #: views/admin/plugin/stats-config-form.php
 #, php-format
 msgid "There are %s<strong>%d</strong>%s distinct user-agent string(s) in the hit log that have not yet been parsed."
-msgstr "Ci sono %s<strong>%d</strong>%s stringhe user-agent distinte nel registro delle visite che non sono ancora state analizzate."
+msgstr "Estas %s<strong>%d</strong>%s aparta(j) uzant-agenta(j) ĉeno(j) en la vizita registro kiuj ankoraŭ ne estis analizitaj."
 
 #: views/admin/plugin/stats-config-form.php
 #, php-format
 msgid "Parse now (%d UA strings)"
-msgstr "Analizza ora (%d stringhe UA)"
+msgstr "Analizi nun (%d UA ĉenoj)"
 
 #: views/admin/plugin/stats-config-form.php
 msgid "Loading user-agent list\xe2\x80\xa6"
-msgstr "Caricamento lista user-agent\xe2\x80\xa6"
+msgstr "Ŝargante uzant-agentan liston\xe2\x80\xa6"
 
 #: views/admin/plugin/stats-config-form.php
 msgid "Nothing to parse."
-msgstr "Niente da analizzare."
+msgstr "Nenio por analizi."
 
 #: views/admin/plugin/stats-config-form.php
 msgid "Error loading list: "
-msgstr "Errore nel caricamento della lista: "
+msgstr "Eraro dum ŝargado de listo: "
 
 #: views/admin/plugin/stats-config-form.php
 msgid "Error: "
-msgstr "Errore: "
+msgstr "Eraro: "
 
 #: views/admin/plugin/stats-config-form.php
 msgid "Done!"
-msgstr "Completato!"
+msgstr "Farite!"
 
 #: views/admin/plugin/stats-config-form.php
 msgid "All parsed"
-msgstr "Tutti analizzati"
+msgstr "Ĉiuj analizitaj"
 
 #: views/admin/plugin/stats-config-form.php
 msgid "Could not load ua-parser-js. Check the URL in the settings above."
-msgstr "Impossibile caricare ua-parser-js. Controlla l'URL nelle impostazioni qui sopra."
+msgstr "Ne eblis ŝargi ua-parser-js. Kontrolu la URL en la supraj agordoj."
 
 #: views/shared/common/most-frequents.php
 msgid "Unknown"
-msgstr "Sconosciuto"
+msgstr "Nekonata"
 
 #: views/shared/common/most-frequents.php
 #, php-format
 msgid "%d views"
-msgstr "%d visualizzazioni"
+msgstr "%d vidoj"
 
 msgid "Loading..."
-msgstr "Caricamento..."
+msgstr "Ŝarĝante..."
