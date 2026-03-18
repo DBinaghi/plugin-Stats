@@ -18,6 +18,9 @@ class Stats_BrowseController extends Omeka_Controller_AbstractActionController
 			case 'by-field':
 				$this->_helper->db->setDefaultModelName('Hit');
 				break;
+			case 'by-collection':
+				$this->_helper->db->setDefaultModelName('Collection');
+				break;
 			default:
 				$this->_helper->db->setDefaultModelName('Stat');
 				break;
@@ -193,7 +196,9 @@ class Stats_BrowseController extends Omeka_Controller_AbstractActionController
 			}
 		} else {
 			foreach ($hitsPerCollection as $collectionId => $hits) {
-				$collection = $this->_helper->db->findById($collectionId, 'Collection');
+				if (!$collectionId) continue;
+				$collection = $db->getTable('Collection')->find($collectionId);
+				if (!$collection) continue;
 				$results[] = [
 					'collection' => metadata($collection, ['Dublin Core', 'Title']),
 					'hits' => $hits,
@@ -236,6 +241,7 @@ class Stats_BrowseController extends Omeka_Controller_AbstractActionController
 			'yearFilter' => $year,
 			'monthFilter' => $month,
 		));
+		$this->_helper->viewRenderer('by-collection');
 	}
 
 	protected function _getHitsPerCollection($hitsPerCollection, $collectionId)
