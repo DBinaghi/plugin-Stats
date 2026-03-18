@@ -16,8 +16,13 @@ plugins to get stats for a specific record type);
 - informative (query, referrer, user agent and language are saved; all stats can
 be browsed by public);
 - count of direct download of files;
-- full control of pruducted data;
-- respect of privacy (if wanted!).
+- full control of produced data;
+- respect of privacy (if wanted!);
+- user agent parsing (browser, OS, device type) via [ua-parser-js], with a
+  server-side cache so each unique user agent string is parsed only once;
+- aggregated language statistics from `Accept-Language` headers, with ISO 639-1
+  language names;
+- charts tab with hit trends and pie charts for browsers and accepted languages.
 
 On the other hand, some advanced features are not implemented, especially
 a detailed board with advanced filters. Nevertheless, logs and data can be
@@ -32,7 +37,7 @@ Uncompress files and rename plugin folder "Stats".
 
 Then install it like any other Omeka plugin and follow the config instructions.
 
-To count direct download of files, you need to add a line in the beginning off
+To count direct download of files, you need to add a line in the beginning of
 `.htaccess`:
 
 ```
@@ -49,18 +54,57 @@ automatically added.
 You can count fullsize files too, but this is not recommended, because in the
 majority of themes, hits may increase even when a simple page is opened.
 
+### User Agent Parser
+
+The plugin can optionally parse raw user-agent strings into structured data
+(browser name and version, rendering engine, operating system, device type and
+vendor) using the [ua-parser-js] library.
+
+Parsing is performed **client-side** by the visitor's own browser, so it adds
+no server-side CPU overhead. Results are sent to the server and cached in a
+dedicated database table (`omeka_stats_user_agents`); each unique user-agent
+string is therefore parsed only once regardless of how many times it appears in
+the hit log.
+
+The plugin ships with a bundled copy of `ua-parser.min.js` inside
+`libraries/ua-parser/`. Because the library is updated frequently, you can
+point the plugin to a more recent copy hosted on a CDN (e.g. [jsDelivr]) or on
+your own server via the configuration page — without having to update the
+plugin itself.
+
+To download or update the bundled fallback manually, grab `ua-parser.min.js`
+from the [ua-parser-js releases] page and place it in
+`plugins/Stats/libraries/ua-parser/`.
+
 
 Browse Stats
 ------------
 
-A summary of stats is displayed at `/stats/summary`.
+A summary of stats is displayed at `/stats/summary`. It has two tabs:
+
+**Summary** — shows total and period hit counts, plus top-10 lists for most
+viewed pages, records, downloads, referrers, queries, browsers and languages.
+
+- The **browsers** panel resolves each raw user-agent string against the cache
+  table and displays browser name, OS and a `(bot)` flag where applicable.
+  User-agents not yet in cache are shown as raw strings and parsed on-the-fly
+  in the browser via ua-parser-js; the result is stored for future visits.
+- The **accepted languages** panel aggregates `Accept-Language` headers by
+  first preferred language, resolving ISO 639-1 codes to their English name
+  with the code in parentheses (e.g. `Italian (it)`).
+
+**Charts** — displays bar charts of hit trends (last 30 days, last 12 months,
+per year) and pie charts for the top 20 browsers and top 24 accepted languages.
+The browser chart reserves black for the "not identified" slice (user-agents
+not yet resolved) and uses Chart.js default colours for all others.
 
 Lists of stats by page, by record or by field are available too. They can be
 ordered and filtered by anonymous / identified users, record types, etc.
 
 These pages can be made available to authorized users only or to all public.
 
-For plugins makers, panels can be added via the hook `stats_summary`.
+For plugins makers, panels can be added via the hooks `stats_summary` and
+`stats_summary_charts`.
 
 
 Displaying some stats in the theme
@@ -140,6 +184,59 @@ The hook and the helper return the partial from the theme.
 `stats_vieweds` returns an html string that can be themed.
 
 
+User Agent Parser
+-----------------
+
+When enabled, the plugin resolves each raw user-agent string stored in the hit
+log to its structured components and caches the result in the
+`omeka_stats_user_agents` table. The parsed fields are:
+
+| Field            | Example value          |
+|------------------|------------------------|
+| `browser`        | Chrome                 |
+| `browser_version`| 120.0.0                |
+| `engine`         | Blink                  |
+| `engine_version` | 120.0.0                |
+| `os`             | Windows                |
+| `os_version`     | 10                     |
+| `device_type`    | desktop / mobile / ... |
+| `device_vendor`  | Apple                  |
+| `device_model`   | iPhone                 |
+| `is_bot`         | 0 / 1                  |
+
+### Configuration options
+
+Two options are available on the plugin configuration page under
+**User Agent Parser**:
+
+- **Parse on visit** — when checked, the visitor's browser automatically parses
+  its own user-agent on every public page view and sends the result to the
+  server. The server stores it only if that user-agent has not been seen before.
+- **ua-parser-js URL** — URL of the `ua-parser.min.js` script to load on public
+  pages. Leave empty to use the bundled copy shipped with the plugin. Pointing
+  this to a CDN (e.g. `https://cdn.jsdelivr.net/npm/ua-parser-js/dist/ua-parser.min.js`)
+  allows the library to be updated independently of the plugin.
+
+### Batch parsing of existing hits
+
+The configuration page also shows how many distinct user-agent strings in the
+hit log have not yet been parsed, and provides a **Parse now** button. Clicking
+it starts a fully client-side batch process: the browser downloads the list of
+unparsed strings, parses them in chunks of 20 with ua-parser-js, and sends each
+chunk to the server. A progress bar tracks the operation.
+
+### Using parsed data in custom views or controllers
+
+```php
+$db = get_db();
+$uaTable = $db->prefix . 'stats_user_agents';
+
+// Aggregate statistics via SummaryController helpers (within the controller):
+$browsers = $this->_getBrowserStats();       // top 20 browsers
+$languages = $this->_aggregateLanguages($rows, 10); // top 10 languages
+```
+
+
 Notes
 -----
 
@@ -148,6 +245,13 @@ Notes
 - Reload of a page generates a new hit (no check).
 - IP can be hashed or not saved for privacy purpose.
 - Currently, screen size is not detected.
+- User-agent parsing is performed client-side and cached server-side; the cache
+  is keyed on `MD5(user_agent)` so lookups are O(1) regardless of log size.
+- The UA cache table is created automatically on first page load after the
+  plugin files are updated, even without a formal reinstall.
+- Accept-Language headers are aggregated by first preferred language only;
+  the ISO 639-1 code is resolved to its English name with the code in
+  parentheses (e.g. `Italian (it)`); unknown codes are shown as-is.
 
 
 Warning
@@ -155,7 +259,7 @@ Warning
 
 Use it at your own risk.
 
-It’s always recommended to backup your files and your databases and to check
+It's always recommended to backup your files and your databases and to check
 your archives regularly so you can roll back if needed.
 
 
@@ -216,3 +320,6 @@ Copyright
 [FSF]: https://www.fsf.org
 [OSI]: http://opensource.org
 [Daniel-KM]: https://github.com/Daniel-KM "Daniel Berthereau"
+[ua-parser-js]: https://github.com/faisalman/ua-parser-js
+[ua-parser-js releases]: https://github.com/faisalman/ua-parser-js/releases
+[jsDelivr]: https://cdn.jsdelivr.net/npm/ua-parser-js/dist/ua-parser.min.js
